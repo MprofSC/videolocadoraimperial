@@ -1,14 +1,12 @@
 # videolocadoraimperial
 
 <p>Empresa: Videolocadora Imperial Ltda</p>
+<p>Equipe de Elaboração: Daniel Estrazulas, Samuel Bristot, Eliandro Minski.</p>
+<p>Alterações:</p>
+<p>Versão - Data - Nome</p>
+<p>1.0 - 25/11/2018 - Eliandro Minski</p>
+<p>Sumário</p>
 <ol>
-<li>Equipe de Elaboração: Daniel Estrazulas, Samuel Bristot, Eliandro Minski.</li>
-<li>Alterações:</li>
-<li>Versão - Data - Nome</li>
-<li>1.0 - 25/11/2018 - Eliandro Minski</li>
-
-Sumário
-
-1 - Apresentação
-
-2 - Justificativa
+  <li>Apresentação</li>
+  <li>Justificativa</li>
+  <li>Objetivo</li>
