@@ -40,3 +40,7 @@ Após reuniões realizadas com os proprietários da empresa contratante e os col
 
 	- Financeiro: Esse modulo é responsavél pelo controle financeiro das locações, rigistrando os valores das diarias dos filmes locados, permitindo a geração de relatórios por periodo, filme, cliente ou colaborador.
 
+
+
+
+OBS - PESSOAL, COMECEI A CRIAR ALGUMAS COISAS AQUI, NÃO SEI SE ESTOU NO CAMINHO CERTO, ESTOU ME BASENADO NOS MODELOS QUE ENCONTREI NO REPOSITORIO DO VINICIUS. REGISTREM SUAS OBSERVAÇÕES. ACABOU A INTERNET GRATIS DO AEROPORTO, VOU FAZER OFF E EM CASA POSTO MAIS.
