@@ -6,7 +6,14 @@
 <p>Versão - Data - Nome</p>
 <p>1.0 - 25/11/2018 - Eliandro Minski</p>
 <p>Sumário</p>
+
 <ol>
   <li>Apresentação</li>
   <li>Justificativa</li>
   <li>Objetivo</li>
+  <li>Membros da Equipe</li>
+  <li>Cronograma</li>
+  <li>Acompanhamento do Projeto</li>
+  <li>Testes</li>
+  <li>Revisões</li>
+</ol>
