@@ -93,7 +93,7 @@ public class ClienteController {
 		return "redirect:/clientes/" + cliente.getId();
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/{id}/delete")
 	public String delete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
 		try {
 			if (id != null) {
