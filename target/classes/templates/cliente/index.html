@@ -46,7 +46,7 @@
 					<td>
 							<a th:href="@{/clientes/{id}(id = ${cliente.id})}">Show</a> 
 					 		<a th:href="@{/clientes/{id}/edit(id = ${cliente.id})}">Edit</a> 
-							<a href="#">Destroy</a> 
+							<a th:href="@{/clientes/{id}/delete(id = ${cliente.id})}">Destroy</a> 
 					</td>
 				</tr>
 			</tbody>
