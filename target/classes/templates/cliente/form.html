@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>New Cliente</title>
+</head>
+<body>
+	<div layout:fragment="content">
+		<h1 th:if="${cliente.id == null}">New Cliente</h1>
+		<h1 th:if="${cliente.id != null}">Edit Cliente</h1>
+		<hr />
+		<form th:action="@{/clientes}" th:method="@{${cliente.id == null} ? 'post' : 'put'}"
+			th:object="${cliente}">
+			<input type="hidden" th:field="*{id}" /> 
+			
+				<div class="form-group"> 
+					<label for="nome">Nome</label>  
+					<input id="nome" name="nome" type="text" class="form-control" th:field="*{nome}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="email">Email</label>  
+					<input id="email" name="email" type="text" class="form-control" th:field="*{email}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="endereco">Endereco</label>  
+					<input id="endereco" name="endereco" type="text" class="form-control" th:field="*{endereco}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="telefoneRes">TelefoneRes</label>  
+					<input id="telefoneRes" name="telefoneRes" type="text" class="form-control" th:field="*{telefoneRes}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="telefoneCom">TelefoneCom</label>  
+					<input id="telefoneCom" name="telefoneCom" type="text" class="form-control" th:field="*{telefoneCom}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="telefoneCel">TelefoneCel</label>  
+					<input id="telefoneCel" name="telefoneCel" type="text" class="form-control" th:field="*{telefoneCel}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="localTrabalho">LocalTrabalho</label>  
+					<input id="localTrabalho" name="localTrabalho" type="text" class="form-control" th:field="*{localTrabalho}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="sexo">Sexo</label>  
+					<input id="sexo" name="sexo" type="text" class="form-control" th:field="*{sexo}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="dataNascimento">DataNascimento</label>  
+					<input id="dataNascimento" name="dataNascimento" type="text" class="form-control" th:field="*{dataNascimento}" />  
+				</div> 
+				<div class="form-group"> 
+					<label for="cpf">Cpf</label>  
+					<input id="cpf" name="cpf" type="text" class="form-control" th:field="*{cpf}" />  
+				</div> 
+
+			<button type="submit" class="btn btn-success">Save</button>
+			<a th:href="@{/clientes}" class="btn btn-default">Back</a>
+		</form>
+	</div>
+</body>
+</html>

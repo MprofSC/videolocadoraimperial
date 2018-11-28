@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorator="layout">
+<head>
+ 	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+</head>
+<body>
+
+	<div layout:fragment="content">
+		<h1>List Cliente</h1>
+		<hr />
+		<a th:href="@{/clientes/new}">New Cliente</a><br/><br/>
+		
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th> 
+					<th>Email</th> 
+					<th>Endereco</th> 
+					<th>TelefoneRes</th> 
+					<th>TelefoneCom</th> 
+					<th>TelefoneCel</th> 
+					<th>LocalTrabalho</th> 
+					<th>Sexo</th> 
+					<th>DataNascimento</th> 
+					<th>Cpf</th> 
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="cliente : ${listCliente}">
+					<td th:text="${cliente.nome}"></td> 
+					<td th:text="${cliente.email}"></td> 
+					<td th:text="${cliente.endereco}"></td> 
+					<td th:text="${cliente.telefoneRes}"></td> 
+					<td th:text="${cliente.telefoneCom}"></td> 
+					<td th:text="${cliente.telefoneCel}"></td> 
+					<td th:text="${cliente.localTrabalho}"></td> 
+					<td th:text="${cliente.sexo}"></td> 
+					<td th:text="${cliente.dataNascimento}"></td> 
+					<td th:text="${cliente.cpf}"></td> 
+					<td>
+							<a th:href="@{/clientes/{id}(id = ${cliente.id})}">Show</a> 
+					 		<a th:href="@{/clientes/{id}/edit(id = ${cliente.id})}">Edit</a> 
+							<a href="#">Destroy</a> 
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
