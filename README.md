@@ -37,11 +37,37 @@
 <p>A Imperial Locadora, já atua no ramo de locações de mídias digitais há mais de 4 anos, durante esse período a empresa controlava as locações através de um software proprietário, renovando sua licença anualmente. Com o crescimento da empresa e a insatisfação com o atual software, que não atende por completo as necessidades, principalmente na questão de controle financeiro, a empresa optou pela substituição do software atual, por um que se atenda suas necessidades por completo, levando em consideração um melhor desempenho, novas funcionalidades, custo de manutenção e atualização.</p>
 <p><strong>3 – Descrição do Projeto</strong></p>
 <p>Após reuniões realizadas entre os proprietários da empresa contratante e os colaboradores da área de desenvolvimento e engenharia de software, gerenciamento de projetos da empresa contratada, foram levantadas as seguintes necessidades que o novo software deve atender:<p>
-<p> Cadastro de Clientes e Colaboradores: O módulo cadastro deverá ser o responsável pelo cadastro de novos clientes e colaboradores, registrando os seguintes atributos: Código; Nome; Endereço; Data De Nascimento; CPF; RG; E-mail; Sexo; Telefone comercial, residencial e celular; Local de Trabalho. Para o cadastro de colaborador, deve-se incluir também a informação da data de contratação e nível de acesso ao sistema. Este módulo deve permitir também a exclusão, bloqueio e alteração de dados cadastrais dos clientes.</p>
-<p>Cadastro de Mídias: O sistema deve possuir um módulo que permita a inclusão, alteração e exclusão de mídias, que devem possuir os seguintes atributos: Código (cada exemplar terá código único), Título, Tipo de mídia (DVD ou Blu-Ray), Gênero, Duração, Ano de Lançamento, Categoria, Produtora, Principais Autores, Data de Aquisição, Fornecedor, Número da NF, Data da NF. O atributo categoria pode ser do tipo A,B,C,D ou E, para cada categoria existe um valor de locação, essa funcionalidade facilita a alteração de preços por grupos. O sistema deve possibilitar a criação de novos atributos, definidos pelo usuário.</p>
-<p>Locação: A locação das mídias será feita através deste módulo próprio. O colaborador, uma vez logado e com permissões, poderá realizar as locações das mídias, para isso, deverá informar o nome ou código do cliente, data de locação, data de devolução, código da mídia. Uma vez realizado o preenchimento destes dados, o sistema imprime um comprovante em duas vias (uma via fica com o cliente e a outra com a locadora), neste comprovante impresso, consta todos os dados informados no ato da locação e mais o valor total das diárias, baseadas no soma do valor da categoria da mídia locada mais o valor de cada diária.</p>
+		
+	Cadastro de Clientes e Colaboradores: O módulo cadastro deverá ser o responsável pelo cadastro de novos
+	clientes e colaboradores, registrando os seguintes atributos: Código; Nome; Endereço; Data De Nascimento;
+	CPF; RG; E-mail; Sexo; Telefone comercial, residencial e celular; Local de Trabalho. Para o cadastro de
+	colaborador, deve-se incluir também a informação da data de contratação e nível de acesso ao sistema.
+	Este módulo deve permitir também a exclusão, bloqueio e alteração de dados cadastrais dos clientes.
+<p> </p>
+	
+	Cadastro de Mídias: O sistema deve possuir um módulo que permita a inclusão, alteração e exclusão de
+	mídias, que devem possuir os seguintes atributos: Código (cada exemplar terá código único), Título, Tipo
+	de mídia (DVD ou Blu-Ray), Gênero, Duração, Ano de Lançamento, Categoria, Produtora, Principais Autores,
+	Data de Aquisição, Fornecedor, Número da NF, Data da NF. O atributo categoria pode ser do tipo A,B,C,D 
+	ou E, para cada categoria existe um valor de locação, essa funcionalidade facilita a alteração de preços 
+	por grupos. O sistema deve possibilitar a criação de novos atributos, definidos pelo usuário.
+	
+	
+<p> </p>
+	
+	Locação: A locação das mídias será feita através deste módulo próprio. O colaborador, uma vez logado e com
+	permissões, poderá realizar as locações das mídias, para isso, deverá informar o nome ou código do cliente,
+	data de locação, data de devolução, código da mídia. Uma vez realizado o preenchimento destes dados, o sistema
+	imprime um comprovante em duas vias (uma via fica com o cliente e a outra com a locadora), neste comprovante
+	impresso, consta todos os dados informados no ato da locação e mais o valor total das diárias, baseadas no
+	soma do valor da categoria da mídia locada mais o valor de cada diária.
+	
 <p>O módulo locação também será responsável pelo cadastro de devoluções de mídias. Quando a mídia é devolvida na locadora, o colaborador deve selecionar a opção “Devolução” e informar o código da mídia ou do cliente, indicar a(s) mídia(s) que estão sendo devolvidas, o sistema confere se a devolução está dentro do prazo estabelecido no ato da locação, caso esteja sendo devolvida com atraso, o sistema adiciona o valor da(s) diária(s) excedentes.</p>
-<p>Financeiro e Relatórios: Neste módulo o colaborador com permissões de acesso, poderá realizar o fechamento do caixa, gerar relatórios financeiros como por exemplo: Quantidades ou valores de locações por período, por mídia ou gênero, quantidades de locações por cliente, estabelecendo períodos.</p>
+	
+	Financeiro e Relatórios:Neste módulo o colaborador com permissões de acesso, poderá realizar o fechamento 
+	do caixa, gerar relatórios financeiros como por exemplo: Quantidades ou valores de locações por período, 
+	por mídia ou gênero, quantidades de locações por cliente, estabelecendo períodos.
+	
 <p>Relatórios estatísticos, também poderão ser gerados neste módulo, auxiliando a gerência na tomada de decisões para aquisição de novas mídias e período para realização de promoções, baseando-se nas informações do sistema, como por exemplo: Gêneros mais locados; Períodos de maiores locações; Preferências do cliente. Outro setor a beneficiar-se com esses relatórios e o setor de marketing, pois poderá realizar consultas e emissão de relatórios que auxiliem na interação com os clientes, como por exemplo, o envio de e-mail informando as novas mídias disponíveis na locadora, lançamentos e promoções, baseados nos dados de preferência do cliente.</p> 
 
 <p><strong>4 – Membros da Equipe</strong></p>
