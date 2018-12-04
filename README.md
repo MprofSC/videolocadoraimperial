@@ -1,7 +1,7 @@
-<p>Empresa: Videolocadora Imperial Ltda.</p>
-<p>Equipe de Elaboração: Daniel Servero Estrazulas, Samuel Bristot Loli, Eliandro Luiz Minski.</p>
-<p>Alterações:</p>
-
+# VIDEOLOCADORA IMPERIAL
+<p><strong>Empresa:</strong> Videolocadora Imperial Ltda.</p>
+<p><strong>Equipe de Elaboração:</strong> Daniel Servero Estrazulas, Samuel Bristot Loli, Eliandro Luiz Minski.</p>
+<p><strong>Alterações:</strong></p>
 <table>
 <thead>
 <tr>
