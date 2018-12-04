@@ -62,7 +62,7 @@
 <p>Inicialmente foram cadastradas no GitHub, 32 tarefas/issues, pré definidas dos tipos: Arquitetural, Documental e Testes/Desenvolvimento, para cada uma dessas tarefas, já ficou estabelecida sua “Complexidade”, “Pontuação” e “Prioridade”, bem como o responsável pela mesma. Esse número de tarefas/issues poderá sofrer alterações no decorrer do desenvolvimento do projeto.</p>
 <p>A gerência do projeto, ficará a cargo de Eliandro Luiz Minski, decisão essa tomada após reunião entre os membros da equipe. Portanto, o mesmo será o responsável pela comunicação entre cliente e equipe do projeto, mediando as interações; acompanhamento das atividades para que a entrega das tarefas estejam dentro do prazo estabelecido e supervisão dos demais membros da equipe.</p>
 
-<p><strong>6 – Acompanhamento<strong></p>
+<p><strong>6 – Acompanhamento</strong></p>
 
 <p>As informações referentes às tarefas/issues, podem ser acessadas no site do GitHub, pelo link:</p>
 <p>https://github.com/MprofSC/videolocadoraimperial/projects/1</p>
