@@ -96,6 +96,6 @@
 <p>https://vlimperial.herokuapp.com/</p>
 
 <p>As interações com o cliente, serão realizados a princípio em três momentos:</p>
-<p>1 - Interação: 01/12/ 2018;</p>
-<p>2 - Interação: 06/12/2018;</p>
-<p>3 - Interação  11/12/2018.</p>
+<p>1 - Interação: 05/12/2018;</p>
+<p>2 - Interação: 10/12/2018;</p>
+<p>3 - Interação  16/12/2018.</p>
