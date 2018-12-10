@@ -26,6 +26,7 @@
     "ngx-cookie": "2.0.1",
     "ngx-infinite-scroll": "6.0.1",
     "ngx-webstorage": "2.0.1",
+    "npm": "^6.4.1",
     "reflect-metadata": "0.1.12",
     "rxjs": "6.3.3",
     "swagger-ui": "2.2.10",
