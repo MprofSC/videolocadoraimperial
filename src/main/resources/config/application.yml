@@ -79,14 +79,13 @@ spring:
 security:
     oauth2:
         client:
-            access-token-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/token
-            user-authorization-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/auth
-            client-id: web_app
-            client-secret: web_app
+            access-token-uri: https://www.googleapis.com/oauth2/v3/token
+            user-authorization-uri: https://accounts.google.com/o/oauth2/auth
+            client-id: 933618419292-6ujnvor07js06bjst840teqto03h61k1.apps.googleusercontent.com
+            client-secret: uFuyym6CfbIJCViuV7KumIfA
             scope: openid profile email
         resource:
-            user-info-uri: http://localhost:9080/auth/realms/jhipster/protocol/openid-connect/userinfo
-
+            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
 server:
     servlet:
         session:
