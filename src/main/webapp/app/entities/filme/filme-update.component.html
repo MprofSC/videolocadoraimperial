@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-filme-heading">Create or edit a Filme</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!filme.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="filme.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tituloOriginal">Titulo Original</label>
+                    <input type="text" class="form-control" name="tituloOriginal" id="field_tituloOriginal"
+                        [(ngModel)]="filme.tituloOriginal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tituloPortugues">Titulo Portugues</label>
+                    <input type="text" class="form-control" name="tituloPortugues" id="field_tituloPortugues"
+                        [(ngModel)]="filme.tituloPortugues" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_paises">Paises</label>
+                    <input type="text" class="form-control" name="paises" id="field_paises"
+                        [(ngModel)]="filme.paises" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_ano">Ano</label>
+                    <input type="number" class="form-control" name="ano" id="field_ano"
+                        [(ngModel)]="filme.ano" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_direcao">Direcao</label>
+                    <input type="text" class="form-control" name="direcao" id="field_direcao"
+                        [(ngModel)]="filme.direcao" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_elenco">Elenco</label>
+                    <input type="text" class="form-control" name="elenco" id="field_elenco"
+                        [(ngModel)]="filme.elenco" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_sinopse">Sinopse</label>
+                    <input type="text" class="form-control" name="sinopse" id="field_sinopse"
+                        [(ngModel)]="filme.sinopse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_duracao">Duracao</label>
+                    <input type="text" class="form-control" name="duracao" id="field_duracao"
+                        [(ngModel)]="filme.duracao" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_genero">Genero</label>
+                    <select class="form-control" name="genero" [(ngModel)]="filme.genero" id="field_genero" >
+                        <option value="ACAO">ACAO</option>
+                        <option value="ANIMACAO">ANIMACAO</option>
+                        <option value="AVENTURA">AVENTURA</option>
+                        <option value="COMEDIA">COMEDIA</option>
+                        <option value="DOCUMENTARIO">DOCUMENTARIO</option>
+                        <option value="DRAMA">DRAMA</option>
+                        <option value="FICCAO">FICCAO</option>
+                        <option value="GUERRA">GUERRA</option>
+                        <option value="MUSICAL">MUSICAL</option>
+                        <option value="POLICIAL">POLICIAL</option>
+                        <option value="ROMANCE">ROMANCE</option>
+                        <option value="SUSPENSE">SUSPENSE</option>
+                        <option value="TERROR">TERROR</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
