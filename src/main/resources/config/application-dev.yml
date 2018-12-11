@@ -36,9 +36,9 @@ spring:
             indent-output: true
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/vlimperial?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false
-        username: root
-        password: root
+        url: jdbc:mysql://172.17.0.2:3306/vlimperial?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+        username: samuel
+        password: gtigti
         hikari:
             auto-commit: false
             data-source-properties:
