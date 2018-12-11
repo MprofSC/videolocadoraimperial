@@ -29,6 +29,8 @@
     ],
     "jhiPrefix": "jhi",
     "otherModules": [],
-    "enableTranslation": false
+    "enableTranslation": false,
+    "herokuAppName": "vlimperial",
+    "herokuDeployType": "git"
   }
 }
