@@ -9,11 +9,12 @@ entity  Cliente{
     telefoneCelular String,
     localTrabalho String,
     sexo GeneroPessoa required,
-    dataNascimento Instant required 
+    dataNascimento Instant required,
+    ativo Boolean
 }
 
 relationship OneToMany {
-	Cliente{numeroIncricao} to Cliente
+	Cliente{cliente} to Cliente
 }
 
 
@@ -25,6 +26,10 @@ enum Genero {
 
 enum GeneroPessoa{
 	MASCULINO, FEMININO, INDEFINIDO
+}
+
+enum TipoMidia{
+	DVD, VHS, HDDVD, BLURAY
 }
 
 entity Filme {
@@ -39,6 +44,15 @@ entity Filme {
     genero Genero
 }
 
+entity ItemFilme{
+	numeroSerie String required,
+    tipoMidia TipoMidia required,
+    dataAquisicao Instant required    
+}
+
+relationship OneToMany {
+	Filme{itemfilme} to ItemFilme
+}
 
 // Set pagination options
 //paginate JobHistory, Employee with infinite-scroll
