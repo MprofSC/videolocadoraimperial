@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="itemFilme">
+            <h2><span>Item Filme</span> {{itemFilme.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Numero Serie</span></dt>
+                <dd>
+                    <span>{{itemFilme.numeroSerie}}</span>
+                </dd>
+                <dt><span>Tipo Midia</span></dt>
+                <dd>
+                    <span>{{itemFilme.tipoMidia}}</span>
+                </dd>
+                <dt><span>Data Aquisicao</span></dt>
+                <dd>
+                    <span>{{itemFilme.dataAquisicao}}</span>
+                </dd>
+                <dt><span>Filme</span></dt>
+                <dd>
+                    <div *ngIf="itemFilme.filme">
+                        <a [routerLink]="['/filme', itemFilme.filme?.id, 'view']">{{itemFilme.filme?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/item-filme', itemFilme.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

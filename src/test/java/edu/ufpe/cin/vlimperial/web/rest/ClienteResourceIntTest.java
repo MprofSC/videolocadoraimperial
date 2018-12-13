@@ -76,6 +76,9 @@ public class ClienteResourceIntTest {
     private static final Instant DEFAULT_DATA_NASCIMENTO = Instant.ofEpochMilli(0L);
     private static final Instant UPDATED_DATA_NASCIMENTO = Instant.now().truncatedTo(ChronoUnit.MILLIS);
 
+    private static final Boolean DEFAULT_ATIVO = false;
+    private static final Boolean UPDATED_ATIVO = true;
+
     @Autowired
     private ClienteRepository clienteRepository;
 
@@ -127,7 +130,8 @@ public class ClienteResourceIntTest {
             .telefoneCelular(DEFAULT_TELEFONE_CELULAR)
             .localTrabalho(DEFAULT_LOCAL_TRABALHO)
             .sexo(DEFAULT_SEXO)
-            .dataNascimento(DEFAULT_DATA_NASCIMENTO);
+            .dataNascimento(DEFAULT_DATA_NASCIMENTO)
+            .ativo(DEFAULT_ATIVO);
         return cliente;
     }
 
@@ -162,6 +166,7 @@ public class ClienteResourceIntTest {
         assertThat(testCliente.getLocalTrabalho()).isEqualTo(DEFAULT_LOCAL_TRABALHO);
         assertThat(testCliente.getSexo()).isEqualTo(DEFAULT_SEXO);
         assertThat(testCliente.getDataNascimento()).isEqualTo(DEFAULT_DATA_NASCIMENTO);
+        assertThat(testCliente.isAtivo()).isEqualTo(DEFAULT_ATIVO);
     }
 
     @Test
@@ -312,7 +317,8 @@ public class ClienteResourceIntTest {
             .andExpect(jsonPath("$.[*].telefoneCelular").value(hasItem(DEFAULT_TELEFONE_CELULAR.toString())))
             .andExpect(jsonPath("$.[*].localTrabalho").value(hasItem(DEFAULT_LOCAL_TRABALHO.toString())))
             .andExpect(jsonPath("$.[*].sexo").value(hasItem(DEFAULT_SEXO.toString())))
-            .andExpect(jsonPath("$.[*].dataNascimento").value(hasItem(DEFAULT_DATA_NASCIMENTO.toString())));
+            .andExpect(jsonPath("$.[*].dataNascimento").value(hasItem(DEFAULT_DATA_NASCIMENTO.toString())))
+            .andExpect(jsonPath("$.[*].ativo").value(hasItem(DEFAULT_ATIVO.booleanValue())));
     }
     
     @Test
@@ -336,7 +342,8 @@ public class ClienteResourceIntTest {
             .andExpect(jsonPath("$.telefoneCelular").value(DEFAULT_TELEFONE_CELULAR.toString()))
             .andExpect(jsonPath("$.localTrabalho").value(DEFAULT_LOCAL_TRABALHO.toString()))
             .andExpect(jsonPath("$.sexo").value(DEFAULT_SEXO.toString()))
-            .andExpect(jsonPath("$.dataNascimento").value(DEFAULT_DATA_NASCIMENTO.toString()));
+            .andExpect(jsonPath("$.dataNascimento").value(DEFAULT_DATA_NASCIMENTO.toString()))
+            .andExpect(jsonPath("$.ativo").value(DEFAULT_ATIVO.booleanValue()));
     }
 
     @Test
@@ -370,7 +377,8 @@ public class ClienteResourceIntTest {
             .telefoneCelular(UPDATED_TELEFONE_CELULAR)
             .localTrabalho(UPDATED_LOCAL_TRABALHO)
             .sexo(UPDATED_SEXO)
-            .dataNascimento(UPDATED_DATA_NASCIMENTO);
+            .dataNascimento(UPDATED_DATA_NASCIMENTO)
+            .ativo(UPDATED_ATIVO);
 
         restClienteMockMvc.perform(put("/api/clientes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -392,6 +400,7 @@ public class ClienteResourceIntTest {
         assertThat(testCliente.getLocalTrabalho()).isEqualTo(UPDATED_LOCAL_TRABALHO);
         assertThat(testCliente.getSexo()).isEqualTo(UPDATED_SEXO);
         assertThat(testCliente.getDataNascimento()).isEqualTo(UPDATED_DATA_NASCIMENTO);
+        assertThat(testCliente.isAtivo()).isEqualTo(UPDATED_ATIVO);
     }
 
     @Test

@@ -39,7 +39,14 @@
             "fieldValues": "ACAO,ANIMACAO,AVENTURA,COMEDIA,DOCUMENTARIO,DRAMA,FICCAO,GUERRA,MUSICAL,POLICIAL,ROMANCE,SUSPENSE,TERROR"
         }
     ],
-    "relationships": [],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "itemfilme",
+            "otherEntityName": "itemFilme",
+            "otherEntityRelationshipName": "filme"
+        }
+    ],
     "changelogDate": "20181211010058",
     "entityTableName": "filme",
     "dto": "no",

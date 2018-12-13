@@ -1,11 +1,14 @@
 package edu.ufpe.cin.vlimperial.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import edu.ufpe.cin.vlimperial.domain.enumeration.Genero;
@@ -52,6 +55,9 @@ public class Filme implements Serializable {
     @Column(name = "genero")
     private Genero genero;
 
+    @OneToMany(mappedBy = "filme")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<ItemFilme> itemfilmes = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -176,6 +182,31 @@ public class Filme implements Serializable {
 
     public void setGenero(Genero genero) {
         this.genero = genero;
+    }
+
+    public Set<ItemFilme> getItemfilmes() {
+        return itemfilmes;
+    }
+
+    public Filme itemfilmes(Set<ItemFilme> itemFilmes) {
+        this.itemfilmes = itemFilmes;
+        return this;
+    }
+
+    public Filme addItemfilme(ItemFilme itemFilme) {
+        this.itemfilmes.add(itemFilme);
+        itemFilme.setFilme(this);
+        return this;
+    }
+
+    public Filme removeItemfilme(ItemFilme itemFilme) {
+        this.itemfilmes.remove(itemFilme);
+        itemFilme.setFilme(null);
+        return this;
+    }
+
+    public void setItemfilmes(Set<ItemFilme> itemFilmes) {
+        this.itemfilmes = itemFilmes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
