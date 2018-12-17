@@ -1,3 +1,5 @@
+import { IItemFilme } from 'app/shared/model//item-filme.model';
+
 export const enum Genero {
     ACAO = 'ACAO',
     ANIMACAO = 'ANIMACAO',
@@ -25,6 +27,7 @@ export interface IFilme {
     sinopse?: string;
     duracao?: string;
     genero?: Genero;
+    itemfilmes?: IItemFilme[];
 }
 
 export class Filme implements IFilme {
@@ -38,6 +41,7 @@ export class Filme implements IFilme {
         public elenco?: string,
         public sinopse?: string,
         public duracao?: string,
-        public genero?: Genero
+        public genero?: Genero,
+        public itemfilmes?: IItemFilme[]
     ) {}
 }

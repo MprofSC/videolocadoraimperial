@@ -63,6 +63,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "ativo",
+            "fieldType": "Boolean"
         }
     ],
     "relationships": [
@@ -74,7 +78,7 @@
         },
         {
             "relationshipType": "one-to-many",
-            "relationshipName": "numeroIncricao",
+            "relationshipName": "cliente",
             "otherEntityName": "cliente",
             "otherEntityRelationshipName": "cliente"
         }

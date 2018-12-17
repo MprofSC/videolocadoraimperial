@@ -20,8 +20,9 @@ export interface ICliente {
     localTrabalho?: string;
     sexo?: GeneroPessoa;
     dataNascimento?: Moment;
+    ativo?: boolean;
     cliente?: ICliente;
-    numeroIncricaos?: ICliente[];
+    clientes?: ICliente[];
 }
 
 export class Cliente implements ICliente {
@@ -38,7 +39,10 @@ export class Cliente implements ICliente {
         public localTrabalho?: string,
         public sexo?: GeneroPessoa,
         public dataNascimento?: Moment,
+        public ativo?: boolean,
         public cliente?: ICliente,
-        public numeroIncricaos?: ICliente[]
-    ) {}
+        public clientes?: ICliente[]
+    ) {
+        this.ativo = this.ativo || false;
+    }
 }

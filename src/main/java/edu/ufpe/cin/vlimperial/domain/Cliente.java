@@ -70,13 +70,16 @@ public class Cliente implements Serializable {
     @Column(name = "data_nascimento", nullable = false)
     private Instant dataNascimento;
 
+    @Column(name = "ativo")
+    private Boolean ativo;
+
     @ManyToOne
-    @JsonIgnoreProperties("numeroIncricaos")
+    @JsonIgnoreProperties("clientes")
     private Cliente cliente;
 
     @OneToMany(mappedBy = "cliente")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    private Set<Cliente> numeroIncricaos = new HashSet<>();
+    private Set<Cliente> clientes = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -229,6 +232,19 @@ public class Cliente implements Serializable {
         this.dataNascimento = dataNascimento;
     }
 
+    public Boolean isAtivo() {
+        return ativo;
+    }
+
+    public Cliente ativo(Boolean ativo) {
+        this.ativo = ativo;
+        return this;
+    }
+
+    public void setAtivo(Boolean ativo) {
+        this.ativo = ativo;
+    }
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -242,29 +258,29 @@ public class Cliente implements Serializable {
         this.cliente = cliente;
     }
 
-    public Set<Cliente> getNumeroIncricaos() {
-        return numeroIncricaos;
+    public Set<Cliente> getClientes() {
+        return clientes;
     }
 
-    public Cliente numeroIncricaos(Set<Cliente> clientes) {
-        this.numeroIncricaos = clientes;
+    public Cliente clientes(Set<Cliente> clientes) {
+        this.clientes = clientes;
         return this;
     }
 
-    public Cliente addNumeroIncricao(Cliente cliente) {
-        this.numeroIncricaos.add(cliente);
+    public Cliente addCliente(Cliente cliente) {
+        this.clientes.add(cliente);
         cliente.setCliente(this);
         return this;
     }
 
-    public Cliente removeNumeroIncricao(Cliente cliente) {
-        this.numeroIncricaos.remove(cliente);
+    public Cliente removeCliente(Cliente cliente) {
+        this.clientes.remove(cliente);
         cliente.setCliente(null);
         return this;
     }
 
-    public void setNumeroIncricaos(Set<Cliente> clientes) {
-        this.numeroIncricaos = clientes;
+    public void setClientes(Set<Cliente> clientes) {
+        this.clientes = clientes;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
@@ -303,6 +319,7 @@ public class Cliente implements Serializable {
             ", localTrabalho='" + getLocalTrabalho() + "'" +
             ", sexo='" + getSexo() + "'" +
             ", dataNascimento='" + getDataNascimento() + "'" +
+            ", ativo='" + isAtivo() + "'" +
             "}";
     }
 }
