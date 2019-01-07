@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 
-import { VlimperialSharedLibsModule, JhiAlertComponent, JhiAlertErrorComponent } from './';
+import { VlimperialSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent } from './';
 
 @NgModule({
     imports: [VlimperialSharedLibsModule],
-    declarations: [JhiAlertComponent, JhiAlertErrorComponent],
-    exports: [VlimperialSharedLibsModule, JhiAlertComponent, JhiAlertErrorComponent]
+    declarations: [FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent],
+    exports: [VlimperialSharedLibsModule, FindLanguageFromKeyPipe, JhiAlertComponent, JhiAlertErrorComponent]
 })
 export class VlimperialSharedCommonModule {}
