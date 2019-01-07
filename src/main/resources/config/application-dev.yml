@@ -37,8 +37,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/vlimperial
-        username: vlimperial
-        password:
+        username: samuel
+        password: gtigti
         hikari:
             auto-commit: false
     jpa:
