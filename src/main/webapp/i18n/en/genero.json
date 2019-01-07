@@ -1,0 +1,20 @@
+{
+    "vlimperialApp": {
+        "Genero": {
+            "null": "",
+            "ACAO": "ACAO",
+            "ANIMACAO": "ANIMACAO",
+            "AVENTURA": "AVENTURA",
+            "COMEDIA": "COMEDIA",
+            "DOCUMENTARIO": "DOCUMENTARIO",
+            "DRAMA": "DRAMA",
+            "FICCAO": "FICCAO",
+            "GUERRA": "GUERRA",
+            "MUSICAL": "MUSICAL",
+            "POLICIAL": "POLICIAL",
+            "ROMANCE": "ROMANCE",
+            "SUSPENSE": "SUSPENSE",
+            "TERROR": "TERROR"
+        }
+    }
+}

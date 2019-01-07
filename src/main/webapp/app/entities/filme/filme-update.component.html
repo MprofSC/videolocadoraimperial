@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-filme-heading" jhiTranslate="vlimperialApp.filme.home.createOrEditLabel">Create or edit a Filme</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!filme.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="filme.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.tituloOriginal" for="field_tituloOriginal">Titulo Original</label>
+                    <input type="text" class="form-control" name="tituloOriginal" id="field_tituloOriginal"
+                        [(ngModel)]="filme.tituloOriginal" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.tituloPortugues" for="field_tituloPortugues">Titulo Portugues</label>
+                    <input type="text" class="form-control" name="tituloPortugues" id="field_tituloPortugues"
+                        [(ngModel)]="filme.tituloPortugues" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.paises" for="field_paises">Paises</label>
+                    <input type="text" class="form-control" name="paises" id="field_paises"
+                        [(ngModel)]="filme.paises" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.ano" for="field_ano">Ano</label>
+                    <input type="number" class="form-control" name="ano" id="field_ano"
+                        [(ngModel)]="filme.ano" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.direcao" for="field_direcao">Direcao</label>
+                    <input type="text" class="form-control" name="direcao" id="field_direcao"
+                        [(ngModel)]="filme.direcao" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.elenco" for="field_elenco">Elenco</label>
+                    <input type="text" class="form-control" name="elenco" id="field_elenco"
+                        [(ngModel)]="filme.elenco" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.sinopse" for="field_sinopse">Sinopse</label>
+                    <input type="text" class="form-control" name="sinopse" id="field_sinopse"
+                        [(ngModel)]="filme.sinopse" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.duracao" for="field_duracao">Duracao</label>
+                    <input type="text" class="form-control" name="duracao" id="field_duracao"
+                        [(ngModel)]="filme.duracao" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.filme.genero" for="field_genero">Genero</label>
+                    <select class="form-control" name="genero" [(ngModel)]="filme.genero" id="field_genero" >
+                        <option value="ACAO">{{'vlimperialApp.Genero.ACAO' | translate}}</option>
+                        <option value="ANIMACAO">{{'vlimperialApp.Genero.ANIMACAO' | translate}}</option>
+                        <option value="AVENTURA">{{'vlimperialApp.Genero.AVENTURA' | translate}}</option>
+                        <option value="COMEDIA">{{'vlimperialApp.Genero.COMEDIA' | translate}}</option>
+                        <option value="DOCUMENTARIO">{{'vlimperialApp.Genero.DOCUMENTARIO' | translate}}</option>
+                        <option value="DRAMA">{{'vlimperialApp.Genero.DRAMA' | translate}}</option>
+                        <option value="FICCAO">{{'vlimperialApp.Genero.FICCAO' | translate}}</option>
+                        <option value="GUERRA">{{'vlimperialApp.Genero.GUERRA' | translate}}</option>
+                        <option value="MUSICAL">{{'vlimperialApp.Genero.MUSICAL' | translate}}</option>
+                        <option value="POLICIAL">{{'vlimperialApp.Genero.POLICIAL' | translate}}</option>
+                        <option value="ROMANCE">{{'vlimperialApp.Genero.ROMANCE' | translate}}</option>
+                        <option value="SUSPENSE">{{'vlimperialApp.Genero.SUSPENSE' | translate}}</option>
+                        <option value="TERROR">{{'vlimperialApp.Genero.TERROR' | translate}}</option>
+                    </select>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
