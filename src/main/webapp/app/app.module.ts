@@ -7,6 +7,7 @@ import { NgbDatepickerConfig } from '@ng-bootstrap/ng-bootstrap';
 import { Ng2Webstorage } from 'ngx-webstorage';
 import { NgJhipsterModule } from 'ng-jhipster';
 
+import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
@@ -14,6 +15,7 @@ import { VlimperialSharedModule } from 'app/shared';
 import { VlimperialCoreModule } from 'app/core';
 import { VlimperialAppRoutingModule } from './app-routing.module';
 import { VlimperialHomeModule } from './home/home.module';
+import { VlimperialAccountModule } from './account/account.module';
 import { VlimperialEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -32,11 +34,17 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
         VlimperialSharedModule.forRoot(),
         VlimperialCoreModule,
         VlimperialHomeModule,
+        VlimperialAccountModule,
         // jhipster-needle-angular-add-module JHipster will add new module here
         VlimperialEntityModule
     ],
     declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, FooterComponent],
     providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthInterceptor,
+            multi: true
+        },
         {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthExpiredInterceptor,

@@ -6,6 +6,10 @@ import { VlimperialSharedModule } from 'app/shared';
 import {
     adminState,
     AuditsComponent,
+    UserMgmtComponent,
+    UserMgmtDetailComponent,
+    UserMgmtUpdateComponent,
+    UserMgmtDeleteDialogComponent,
     LogsComponent,
     JhiMetricsMonitoringModalComponent,
     JhiMetricsMonitoringComponent,
@@ -23,6 +27,10 @@ import {
     ],
     declarations: [
         AuditsComponent,
+        UserMgmtComponent,
+        UserMgmtDetailComponent,
+        UserMgmtUpdateComponent,
+        UserMgmtDeleteDialogComponent,
         LogsComponent,
         JhiConfigurationComponent,
         JhiHealthCheckComponent,
@@ -31,7 +39,7 @@ import {
         JhiMetricsMonitoringComponent,
         JhiMetricsMonitoringModalComponent
     ],
-    entryComponents: [JhiHealthModalComponent, JhiMetricsMonitoringModalComponent],
+    entryComponents: [UserMgmtDeleteDialogComponent, JhiHealthModalComponent, JhiMetricsMonitoringModalComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class VlimperialAdminModule {}

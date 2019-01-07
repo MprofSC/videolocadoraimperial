@@ -33,11 +33,13 @@ management:
         enabled: false # http://micrometer.io/ is disabled by default, as we use http://metrics.dropwizard.io/ instead
 
 spring:
+    autoconfigure:
+        exclude: org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchAutoConfiguration,org.springframework.boot.autoconfigure.data.elasticsearch.ElasticsearchDataAutoConfiguration
     application:
         name: vlimperial
     profiles:
         # The commented value for `active` can be replaced with valid Spring profiles to load.
-        # Otherwise, it will be filled in by maven when building the WAR file
+        # Otherwise, it will be filled in by gradle when building the WAR file
         # Either way, it can be overridden by `--spring.profiles.active` value passed in the commandline or `-Dspring.profiles.active` set in `JAVA_OPTS`
         active: #spring.profiles.active#
     jpa:
@@ -57,35 +59,6 @@ spring:
     thymeleaf:
         mode: HTML
 
-# ===================================================================
-# OpenID Connect Settings. Default settings are for Keycloak in Docker.
-# Start Keycloak using `docker-compose -f src/main/docker/keycloak.yml up`.
-#
-# To use Okta, your settings should resemble the following:
-#
-# accessTokenUri: https://{yourOktaDomain}.com/oauth2/default/v1/token
-# userAuthorizationUri: https://{yourOktaDomain}.com/oauth2/default/v1/authorize
-# clientId: {copy after creating an OIDC app}
-# clientSecret: {copy after creating an OIDC app}
-# userInfoUri: https://{yourOktaDomain}.com/oauth2/default/v1/userinfo
-# tokenInfoUri: https://{yourOktaDomain}.com/oauth2/default/v1/introspect
-#
-# You can also override these properties using environment variables.
-# For example:
-#
-# export SECURITY_OAUTH2_CLIENT_CLIENT_ID="jhipster"
-# export SECURITY_OAUTH2_CLIENT_CLIENT_SECRET="38561a05"
-# ===================================================================
-security:
-    oauth2:
-        client:
-            access-token-uri: https://www.googleapis.com/oauth2/v3/token
-            user-authorization-uri: https://accounts.google.com/o/oauth2/auth
-            client-id: 933618419292-6ujnvor07js06bjst840teqto03h61k1.apps.googleusercontent.com
-            client-secret: uFuyym6CfbIJCViuV7KumIfA
-            scope: openid profile email
-        resource:
-            user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
 server:
     servlet:
         session:

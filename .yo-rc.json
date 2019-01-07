@@ -1,36 +1,33 @@
 {
-  "generator-jhipster": {
-    "promptValues": {
-      "packageName": "edu.ufpe.cin.vlimperial"
-    },
-    "jhipsterVersion": "5.7.0",
-    "applicationType": "monolith",
-    "baseName": "vlimperial",
-    "packageName": "edu.ufpe.cin.vlimperial",
-    "packageFolder": "edu/ufpe/cin/vlimperial",
-    "serverPort": "8080",
-    "authenticationType": "oauth2",
-    "cacheProvider": "ehcache",
-    "enableHibernateCache": true,
-    "websocket": false,
-    "databaseType": "sql",
-    "devDatabaseType": "mysql",
-    "prodDatabaseType": "mysql",
-    "searchEngine": false,
-    "messageBroker": false,
-    "serviceDiscoveryType": false,
-    "buildTool": "maven",
-    "enableSwaggerCodegen": false,
-    "clientFramework": "angularX",
-    "useSass": false,
-    "clientPackageManager": "npm",
-    "testFrameworks": [
-      "cucumber"
-    ],
-    "jhiPrefix": "jhi",
-    "otherModules": [],
-    "enableTranslation": false,
-    "herokuAppName": "vlimperial",
-    "herokuDeployType": "git"
-  }
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "edu.ufpe.cin.vlimperial"
+        },
+        "jhipsterVersion": "5.7.1",
+        "applicationType": "monolith",
+        "baseName": "vlimperial",
+        "packageName": "edu.ufpe.cin.vlimperial",
+        "packageFolder": "edu/ufpe/cin/vlimperial",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "postgresql",
+        "prodDatabaseType": "postgresql",
+        "searchEngine": "elasticsearch",
+        "messageBroker": false,
+        "serviceDiscoveryType": false,
+        "buildTool": "gradle",
+        "enableSwaggerCodegen": true,
+        "jwtSecretKey": "NzBiMTlkYzVlMzAyNGE0MGY4Yzc3OTFhMmNlMjc5MWY1MjdjYmY4MDE4YTRkOGQ1NDQ0ZGI1ZmYzYmRhZDdjM2U2ZmQ3NTUyMzgzY2U5Zjk0NDJlNTc0Nzg0NmZlNTM4ZTMwMTU5YzhhMWRkZTZlZTIzZDliOTBiMTk1NjI2MGY=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": ["cucumber"],
+        "jhiPrefix": "jhi",
+        "otherModules": [],
+        "enableTranslation": false
+    }
 }

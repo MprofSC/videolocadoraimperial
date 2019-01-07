@@ -7,25 +7,11 @@ module.exports = {
     isExternalLib
 };
 
-const parseString = require('xml2js').parseString;
-// return the version number from `pom.xml` file
+// Returns the second occurrence of the version number from `build.gradle` file
 function parseVersion() {
-    let version = null;
-    const pomXml = fs.readFileSync('pom.xml', 'utf8');
-    parseString(pomXml, (err, result) => {
-        if (err) {
-            throw new Error('Failed to parse pom.xml: ' + err);
-        }
-        if (result.project.version && result.project.version[0]) {
-            version = result.project.version[0];
-        } else if (result.project.parent && result.project.parent[0] && result.project.parent[0].version && result.project.parent[0].version[0]) {
-            version = result.project.parent[0].version[0];
-        }
-    });
-    if (version === null) {
-        throw new Error('pom.xml is malformed. No version is defined');
-    }
-    return version;
+    const versionRegex = /^version\s*=\s*[',"]([^',"]*)[',"]/gm; // Match and group the version number
+    const buildGradle = fs.readFileSync('build.gradle', 'utf8');
+    return versionRegex.exec(buildGradle)[1];
 }
 
 const _root = path.resolve(__dirname, '..');

@@ -1,5 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
-import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
+import { JhiEventManager, JhiAlert, JhiAlertService } from 'ng-jhipster';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -11,7 +11,8 @@ import { Subscription } from 'rxjs';
                     <pre [innerHTML]="alert.msg"></pre>
                 </ngb-alert>
             </div>
-        </div>`
+        </div>
+    `
 })
 export class JhiAlertErrorComponent implements OnDestroy {
     alerts: any[];
@@ -96,17 +97,14 @@ export class JhiAlertErrorComponent implements OnDestroy {
     }
 
     addErrorAlert(message, key?, data?) {
-        this.alerts.push(
-            this.alertService.addAlert(
-                {
-                    type: 'danger',
-                    msg: message,
-                    timeout: 5000,
-                    toast: this.alertService.isToast(),
-                    scoped: true
-                },
-                this.alerts
-            )
-        );
+        const newAlert: JhiAlert = {
+            type: 'danger',
+            msg: message,
+            timeout: 5000,
+            toast: this.alertService.isToast(),
+            scoped: true
+        };
+
+        this.alerts.push(this.alertService.addAlert(newAlert, this.alerts));
     }
 }

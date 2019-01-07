@@ -1,0 +1,11 @@
+version: '2'
+services:
+    vlimperial-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/vlimperial/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=vlimperial
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
