@@ -1,0 +1,140 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-cliente-heading" jhiTranslate="vlimperialApp.cliente.home.createOrEditLabel">Create or edit a Cliente</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!cliente.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="cliente.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.numeroIncricao" for="field_numeroIncricao">Numero Incricao</label>
+                    <input type="number" class="form-control" name="numeroIncricao" id="field_numeroIncricao"
+                        [(ngModel)]="cliente.numeroIncricao" required/>
+                    <div [hidden]="!(editForm.controls.numeroIncricao?.dirty && editForm.controls.numeroIncricao?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.numeroIncricao?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.numeroIncricao?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.nome" for="field_nome">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="field_nome"
+                        [(ngModel)]="cliente.nome" required/>
+                    <div [hidden]="!(editForm.controls.nome?.dirty && editForm.controls.nome?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.nome?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.cpf" for="field_cpf">Cpf</label>
+                    <input type="number" class="form-control" name="cpf" id="field_cpf"
+                        [(ngModel)]="cliente.cpf" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.email" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                        [(ngModel)]="cliente.email" required/>
+                    <div [hidden]="!(editForm.controls.email?.dirty && editForm.controls.email?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.email?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.endereco" for="field_endereco">Endereco</label>
+                    <input type="text" class="form-control" name="endereco" id="field_endereco"
+                        [(ngModel)]="cliente.endereco" required/>
+                    <div [hidden]="!(editForm.controls.endereco?.dirty && editForm.controls.endereco?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.endereco?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.telefoneResidencial" for="field_telefoneResidencial">Telefone Residencial</label>
+                    <input type="text" class="form-control" name="telefoneResidencial" id="field_telefoneResidencial"
+                        [(ngModel)]="cliente.telefoneResidencial" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.telefoneComercial" for="field_telefoneComercial">Telefone Comercial</label>
+                    <input type="text" class="form-control" name="telefoneComercial" id="field_telefoneComercial"
+                        [(ngModel)]="cliente.telefoneComercial" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.telefoneCelular" for="field_telefoneCelular">Telefone Celular</label>
+                    <input type="text" class="form-control" name="telefoneCelular" id="field_telefoneCelular"
+                        [(ngModel)]="cliente.telefoneCelular" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.localTrabalho" for="field_localTrabalho">Local Trabalho</label>
+                    <input type="text" class="form-control" name="localTrabalho" id="field_localTrabalho"
+                        [(ngModel)]="cliente.localTrabalho" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.sexo" for="field_sexo">Sexo</label>
+                    <select class="form-control" name="sexo" [(ngModel)]="cliente.sexo" id="field_sexo"  required>
+                        <option value="MASCULINO">{{'vlimperialApp.GeneroPessoa.MASCULINO' | translate}}</option>
+                        <option value="FEMININO">{{'vlimperialApp.GeneroPessoa.FEMININO' | translate}}</option>
+                        <option value="INDEFINIDO">{{'vlimperialApp.GeneroPessoa.INDEFINIDO' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.sexo?.dirty && editForm.controls.sexo?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.sexo?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.dataNascimento" for="field_dataNascimento">Data Nascimento</label>
+                    <div class="d-flex">
+                        <input id="field_dataNascimento" type="datetime-local" class="form-control" name="dataNascimento" [(ngModel)]="dataNascimento"
+                        required/>
+                    </div>
+                    <div [hidden]="!(editForm.controls.dataNascimento?.dirty && editForm.controls.dataNascimento?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.dataNascimento?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.dataNascimento?.errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.ativo" for="field_ativo">Ativo</label>
+                    <input type="checkbox" class="form-control" name="ativo" id="field_ativo"
+                        [(ngModel)]="cliente.ativo" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="vlimperialApp.cliente.cliente" for="field_cliente">Cliente</label>
+                    <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="cliente.cliente" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="clienteOption.id === cliente.cliente?.id ? cliente.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
