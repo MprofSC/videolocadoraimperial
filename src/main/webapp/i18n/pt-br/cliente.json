@@ -1,0 +1,35 @@
+{
+    "vlimperialApp": {
+        "cliente": {
+            "home": {
+                "title": "Clientes",
+                "createLabel": "Criar novo Cliente",
+                "createOrEditLabel": "Criar ou editar Cliente",
+                "search": "Pesquisar por Cliente"
+            },
+            "created": "Um novo Cliente foi criado com o identificador {{ param }}",
+            "updated": "Um Cliente foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Cliente foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Cliente {{ id }}?"
+            },
+            "detail": {
+                "title": "Cliente"
+            },
+            "numeroIncricao": "Numero Incricao",
+            "nome": "Nome",
+            "cpf": "Cpf",
+            "email": "Email",
+            "endereco": "Endereco",
+            "telefoneResidencial": "Telefone Residencial",
+            "telefoneComercial": "Telefone Comercial",
+            "telefoneCelular": "Telefone Celular",
+            "localTrabalho": "Local Trabalho",
+            "sexo": "Sexo",
+            "dataNascimento": "Data Nascimento",
+            "ativo": "Ativo",
+            "cliente": "Cliente",
+            "cliente": "Cliente"
+        }
+    }
+}

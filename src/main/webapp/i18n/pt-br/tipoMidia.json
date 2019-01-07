@@ -1,0 +1,11 @@
+{
+    "vlimperialApp": {
+        "TipoMidia": {
+            "null": "",
+            "DVD": "DVD",
+            "VHS": "VHS",
+            "HDDVD": "HDDVD",
+            "BLURAY": "BLURAY"
+        }
+    }
+}

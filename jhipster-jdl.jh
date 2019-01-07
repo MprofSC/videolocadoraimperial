@@ -9,12 +9,12 @@ entity  Cliente{
     telefoneCelular String,
     localTrabalho String,
     sexo GeneroPessoa required,
-    dataNascimento Instant required,
+    dataNascimento ZonedDateTime required,
     ativo Boolean
 }
 
 relationship OneToMany {
-	Cliente{cliente} to Cliente
+	Cliente{cliente(nome)} to Cliente
 }
 
 
@@ -47,11 +47,11 @@ entity Filme {
 entity ItemFilme{
 	numeroSerie String required,
     tipoMidia TipoMidia required,
-    dataAquisicao Instant required    
+    dataAquisicao ZonedDateTime required    
 }
 
 relationship OneToMany {
-	Filme{itemfilme} to ItemFilme
+    Filme{itemfilme} to ItemFilme
 }
 
 // Set pagination options
