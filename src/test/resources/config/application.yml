@@ -49,7 +49,7 @@ spring:
         elasticsearch:
             properties:
                 path:
-                    home: build/elasticsearch
+                    home: target/elasticsearch
     liquibase:
         contexts: test
     mail:
@@ -89,12 +89,9 @@ jhipster:
         from: test@localhost
         base-url: http://127.0.0.1:8080
     security:
-        authentication:
-            jwt:
-                # This token must be encoded using Base64 (you can type `echo 'secret-key'|base64` on your command line)
-                base64-secret: NzBiMTlkYzVlMzAyNGE0MGY4Yzc3OTFhMmNlMjc5MWY1MjdjYmY4MDE4YTRkOGQ1NDQ0ZGI1ZmYzYmRhZDdjM2U2ZmQ3NTUyMzgzY2U5Zjk0NDJlNTc0Nzg0NmZlNTM4ZTMwMTU5YzhhMWRkZTZlZTIzZDliOTBiMTk1NjI2MGY=
-                # Token is valid 24 hours
-                token-validity-in-seconds: 86400
+        remember-me:
+            # security key (this key should be unique for your application, and kept secret)
+            key: 9f93573fbea40e281cc0ddc90e57693f99ab73dff79945da75139a21131cc5f777df5fbaa743da0e03f13e2ff95614c3b775
     metrics: # DropWizard Metrics configuration, used by MetricsConfiguration
         jmx.enabled: true
         logs: # Reports Dropwizard metrics in the logs

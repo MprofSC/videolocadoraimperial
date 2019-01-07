@@ -38,6 +38,8 @@ public class CacheConfiguration {
             cm.createCache(edu.ufpe.cin.vlimperial.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ufpe.cin.vlimperial.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ufpe.cin.vlimperial.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.PersistentToken.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.User.class.getName() + ".persistentTokens", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
