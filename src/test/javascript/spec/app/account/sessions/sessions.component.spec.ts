@@ -5,8 +5,8 @@ import { VlimperialTestModule } from '../../../test.module';
 import { Session } from 'app/account/sessions/session.model';
 import { SessionsComponent } from 'app/account/sessions/sessions.component';
 import { SessionsService } from 'app/account/sessions/sessions.service';
-import { MockAccountService } from '../../../helpers/mock-account.service';
-import { AccountService } from 'app/core/auth/account.service';
+import { MockPrincipal } from '../../../helpers/mock-principal.service';
+import { Principal } from 'app/core/auth/principal.service';
 
 describe('Component Tests', () => {
     let sessions: Session[];
@@ -27,9 +27,9 @@ describe('Component Tests', () => {
         });
 
         it('should define its initial state', inject(
-            [AccountService, SessionsService],
-            fakeAsync((mockAccountService: MockAccountService, service: SessionsService) => {
-                mockAccountService.spy('identity').and.returnValue(
+            [Principal, SessionsService],
+            fakeAsync((mockPrincipal: MockPrincipal, service: SessionsService) => {
+                mockPrincipal.spy('identity').and.returnValue(
                     Promise.resolve({
                         id: 'fuzzer'
                     })
@@ -39,7 +39,7 @@ describe('Component Tests', () => {
                 comp.ngOnInit();
                 tick();
 
-                expect(mockAccountService.identitySpy).toHaveBeenCalled();
+                expect(mockPrincipal.identitySpy).toHaveBeenCalled();
                 expect(service.findAll).toHaveBeenCalled();
                 expect(comp.success).toBeUndefined();
                 expect(comp.error).toBeUndefined();
@@ -51,9 +51,9 @@ describe('Component Tests', () => {
         ));
 
         it('should call delete on Sessions to invalidate a session', inject(
-            [AccountService, SessionsService],
-            fakeAsync((mockAccountService: MockAccountService, service: SessionsService) => {
-                mockAccountService.spy('identity').and.returnValue(
+            [Principal, SessionsService],
+            fakeAsync((mockPrincipal: MockPrincipal, service: SessionsService) => {
+                mockPrincipal.spy('identity').and.returnValue(
                     Promise.resolve({
                         id: 'fuzzer'
                     })
@@ -70,9 +70,9 @@ describe('Component Tests', () => {
         ));
 
         it('should call delete on Sessions and notify of error', inject(
-            [AccountService, SessionsService],
-            fakeAsync((mockAccountService: MockAccountService, service: SessionsService) => {
-                mockAccountService.spy('identity').and.returnValue(
+            [Principal, SessionsService],
+            fakeAsync((mockPrincipal: MockPrincipal, service: SessionsService) => {
+                mockPrincipal.spy('identity').and.returnValue(
                     Promise.resolve({
                         id: 'fuzzer'
                     })
@@ -94,9 +94,9 @@ describe('Component Tests', () => {
         ));
 
         it('should call notify of success upon session invalidation', inject(
-            [AccountService, SessionsService],
-            fakeAsync((mockAccountService: MockAccountService, service: SessionsService) => {
-                mockAccountService.spy('identity').and.returnValue(
+            [Principal, SessionsService],
+            fakeAsync((mockPrincipal: MockPrincipal, service: SessionsService) => {
+                mockPrincipal.spy('identity').and.returnValue(
                     Promise.resolve({
                         id: 'fuzzer'
                     })

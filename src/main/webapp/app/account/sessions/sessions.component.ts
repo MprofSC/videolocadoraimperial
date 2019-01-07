@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { AccountService } from 'app/core';
+import { Principal } from 'app/core';
 import { Session } from './session.model';
 import { SessionsService } from './sessions.service';
 
@@ -14,12 +14,12 @@ export class SessionsComponent implements OnInit {
     success: string;
     sessions: Session[];
 
-    constructor(private sessionsService: SessionsService, private accountService: AccountService) {}
+    constructor(private sessionsService: SessionsService, private principal: Principal) {}
 
     ngOnInit() {
         this.sessionsService.findAll().subscribe(sessions => (this.sessions = sessions));
 
-        this.accountService.identity().then(account => {
+        this.principal.identity().then(account => {
             this.account = account;
         });
     }

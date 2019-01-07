@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { Observable, throwError } from 'rxjs';
 
 import { VlimperialTestModule } from '../../../test.module';
-import { AccountService } from 'app/core';
+import { Principal, AccountService } from 'app/core';
 import { SettingsComponent } from 'app/account/settings/settings.component';
 
 describe('Component Tests', () => {
@@ -10,6 +10,7 @@ describe('Component Tests', () => {
         let comp: SettingsComponent;
         let fixture: ComponentFixture<SettingsComponent>;
         let mockAuth: any;
+        let mockPrincipal: any;
 
         beforeEach(async(() => {
             TestBed.configureTestingModule({
@@ -25,6 +26,7 @@ describe('Component Tests', () => {
             fixture = TestBed.createComponent(SettingsComponent);
             comp = fixture.componentInstance;
             mockAuth = fixture.debugElement.injector.get(AccountService);
+            mockPrincipal = fixture.debugElement.injector.get(Principal);
         });
 
         it('should send the current identity upon save', () => {
@@ -35,17 +37,17 @@ describe('Component Tests', () => {
 
                 activated: true,
                 email: 'john.doe@mail.com',
-                langKey: 'pt-br',
+                langKey: 'en',
                 login: 'john'
             };
-            mockAuth.setIdentityResponse(accountValues);
+            mockPrincipal.setResponse(accountValues);
 
             // WHEN
             comp.settingsAccount = accountValues;
             comp.save();
 
             // THEN
-            expect(mockAuth.identitySpy).toHaveBeenCalled();
+            expect(mockPrincipal.identitySpy).toHaveBeenCalled();
             expect(mockAuth.saveSpy).toHaveBeenCalledWith(accountValues);
             expect(comp.settingsAccount).toEqual(accountValues);
         });
@@ -56,7 +58,7 @@ describe('Component Tests', () => {
                 firstName: 'John',
                 lastName: 'Doe'
             };
-            mockAuth.setIdentityResponse(accountValues);
+            mockPrincipal.setResponse(accountValues);
 
             // WHEN
             comp.save();

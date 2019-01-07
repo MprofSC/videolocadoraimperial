@@ -1,36 +1,35 @@
 {
-    "generator-jhipster": {
-        "promptValues": {
-            "packageName": "edu.ufpe.cin.vlimperial",
-            "nativeLanguage": "pt-br"
-        },
-        "jhipsterVersion": "5.7.1",
-        "applicationType": "monolith",
-        "baseName": "vlimperial",
-        "packageName": "edu.ufpe.cin.vlimperial",
-        "packageFolder": "edu/ufpe/cin/vlimperial",
-        "serverPort": "8080",
-        "authenticationType": "session",
-        "cacheProvider": "ehcache",
-        "enableHibernateCache": true,
-        "websocket": false,
-        "databaseType": "sql",
-        "devDatabaseType": "postgresql",
-        "prodDatabaseType": "postgresql",
-        "searchEngine": "elasticsearch",
-        "messageBroker": false,
-        "serviceDiscoveryType": false,
-        "buildTool": "maven",
-        "enableSwaggerCodegen": false,
-        "rememberMeKey": "9f93573fbea40e281cc0ddc90e57693f99ab73dff79945da75139a21131cc5f777df5fbaa743da0e03f13e2ff95614c3b775",
-        "clientFramework": "angularX",
-        "useSass": false,
-        "clientPackageManager": "npm",
-        "testFrameworks": ["cucumber"],
-        "jhiPrefix": "jhi",
-        "otherModules": [],
-        "enableTranslation": true,
-        "nativeLanguage": "pt-br",
-        "languages": ["pt-br"]
-    }
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "edu.ufpe.cin.vlimperial"
+    },
+    "jhipsterVersion": "5.7.0",
+    "applicationType": "monolith",
+    "baseName": "vlimperial",
+    "packageName": "edu.ufpe.cin.vlimperial",
+    "packageFolder": "edu/ufpe/cin/vlimperial",
+    "serverPort": "8080",
+    "authenticationType": "session",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "postgresql",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": "elasticsearch",
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "rememberMeKey": "a11b537148742919c2681b6060827efd4b8e3131240070aa669e5679c7fc0f74c21852b2cedc493437221908985bdbbe1742",
+    "clientFramework": "angularX",
+    "useSass": false,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "cucumber"
+    ],
+    "jhiPrefix": "jhi",
+    "otherModules": [],
+    "enableTranslation": false
+  }
 }

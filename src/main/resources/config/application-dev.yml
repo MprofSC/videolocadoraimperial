@@ -37,8 +37,8 @@ spring:
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/vlimperial
-        username: samuel
-        password: gtigti
+        username: vlimperial
+        password:
         hikari:
             auto-commit: false
     jpa:
@@ -96,7 +96,7 @@ jhipster:
     security:
         remember-me:
             # security key (this key should be unique for your application, and kept secret)
-            key: 9f93573fbea40e281cc0ddc90e57693f99ab73dff79945da75139a21131cc5f777df5fbaa743da0e03f13e2ff95614c3b775
+            key: a11b537148742919c2681b6060827efd4b8e3131240070aa669e5679c7fc0f74c21852b2cedc493437221908985bdbbe1742
     mail: # specific JHipster mail property, for standard properties see MailProperties
         from: vlimperial@localhost
         base-url: http://127.0.0.1:8080

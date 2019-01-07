@@ -2,7 +2,7 @@ import { NgModule, LOCALE_ID } from '@angular/core';
 import { DatePipe, registerLocaleData } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Title } from '@angular/platform-browser';
-import locale from '@angular/common/locales/pt';
+import locale from '@angular/common/locales/en';
 
 @NgModule({
     imports: [HttpClientModule],
@@ -12,7 +12,7 @@ import locale from '@angular/common/locales/pt';
         Title,
         {
             provide: LOCALE_ID,
-            useValue: 'pt'
+            useValue: 'en'
         },
         DatePipe
     ]
