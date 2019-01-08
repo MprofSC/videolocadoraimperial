@@ -25,5 +25,8 @@ spring:
         hikari:
             maximumPoolSize: 8
     data:
-        jest:
-            uri: ${BONSAI_URL}
+        elasticsearch:
+            properties:
+                path:
+                    home: target/elasticsearch
+            
