@@ -1,0 +1,10 @@
+{
+    "vlimperialApp": {
+        "GeneroPessoa": {
+            "null": "",
+            "MASCULINO": "MASCULINO",
+            "FEMININO": "FEMININO",
+            "INDEFINIDO": "INDEFINIDO"
+        }
+    }
+}

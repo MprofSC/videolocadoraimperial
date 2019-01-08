@@ -1,0 +1,25 @@
+{
+    "vlimperialApp": {
+        "itemFilme": {
+            "home": {
+                "title": "Item Filmes",
+                "createLabel": "Criar novo Item Filme",
+                "createOrEditLabel": "Criar ou editar Item Filme",
+                "search": "Pesquisar por Item Filme"
+            },
+            "created": "Um novo Item Filme foi criado com o identificador {{ param }}",
+            "updated": "Um Item Filme foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Item Filme foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Item Filme {{ id }}?"
+            },
+            "detail": {
+                "title": "Item Filme"
+            },
+            "numeroSerie": "Numero Serie",
+            "tipoMidia": "Tipo Midia",
+            "dataAquisicao": "Data Aquisicao",
+            "filme": "Filme"
+        }
+    }
+}

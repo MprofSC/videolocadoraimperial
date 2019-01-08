@@ -1,0 +1,31 @@
+{
+    "vlimperialApp": {
+        "filme": {
+            "home": {
+                "title": "Filmes",
+                "createLabel": "Criar novo Filme",
+                "createOrEditLabel": "Criar ou editar Filme",
+                "search": "Pesquisar por Filme"
+            },
+            "created": "Um novo Filme foi criado com o identificador {{ param }}",
+            "updated": "Um Filme foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Filme foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Filme {{ id }}?"
+            },
+            "detail": {
+                "title": "Filme"
+            },
+            "tituloOriginal": "Titulo Original",
+            "tituloPortugues": "Titulo Portugues",
+            "paises": "Paises",
+            "ano": "Ano",
+            "direcao": "Direcao",
+            "elenco": "Elenco",
+            "sinopse": "Sinopse",
+            "duracao": "Duracao",
+            "genero": "Genero",
+            "itemfilme": "Itemfilme"
+        }
+    }
+}

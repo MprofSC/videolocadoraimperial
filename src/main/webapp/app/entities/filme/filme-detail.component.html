@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="filme">
+            <h2><span jhiTranslate="vlimperialApp.filme.detail.title">Filme</span> {{filme.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="vlimperialApp.filme.tituloOriginal">Titulo Original</span></dt>
+                <dd>
+                    <span>{{filme.tituloOriginal}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.tituloPortugues">Titulo Portugues</span></dt>
+                <dd>
+                    <span>{{filme.tituloPortugues}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.paises">Paises</span></dt>
+                <dd>
+                    <span>{{filme.paises}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.ano">Ano</span></dt>
+                <dd>
+                    <span>{{filme.ano}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.direcao">Direcao</span></dt>
+                <dd>
+                    <span>{{filme.direcao}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.elenco">Elenco</span></dt>
+                <dd>
+                    <span>{{filme.elenco}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.sinopse">Sinopse</span></dt>
+                <dd>
+                    <span>{{filme.sinopse}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.duracao">Duracao</span></dt>
+                <dd>
+                    <span>{{filme.duracao}}</span>
+                </dd>
+                <dt><span jhiTranslate="vlimperialApp.filme.genero">Genero</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'vlimperialApp.Genero.' + filme.genero}}">{{filme.genero}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/filme', filme.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
