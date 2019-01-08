@@ -36,6 +36,8 @@
     "languages": [
       "pt-br",
       "en"
-    ]
+    ],
+    "herokuAppName": "vlimperial",
+    "herokuDeployType": "git"
   }
 }
