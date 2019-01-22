@@ -23,7 +23,7 @@ spring:
         username: ${JDBC_DATABASE_USERNAME}
         password: ${JDBC_DATABASE_PASSWORD}
         hikari:
-            maximumPoolSize: 8
+            maximumPoolSize: 4
     data:
         jest:
             uri: ${BONSAI_URL}
