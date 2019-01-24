@@ -86,8 +86,8 @@ public class ClienteResourceIntTest {
     private static final ZonedDateTime DEFAULT_DATA_NASCIMENTO = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_DATA_NASCIMENTO = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final Boolean DEFAULT_ATIVO = false;
-    private static final Boolean UPDATED_ATIVO = true;
+    private static final Boolean DEFAULT_ATIVO = true;
+    private static final Boolean UPDATED_ATIVO = false;
 
     @Autowired
     private ClienteRepository clienteRepository;
@@ -166,7 +166,7 @@ public class ClienteResourceIntTest {
             .localTrabalho(DEFAULT_LOCAL_TRABALHO)
             .sexo(DEFAULT_SEXO)
             .dataNascimento(DEFAULT_DATA_NASCIMENTO)
-            .ativo(UPDATED_ATIVO)
+            .ativo(DEFAULT_ATIVO)
             .cliente(cliente);
         return dependente;
     }
@@ -455,7 +455,6 @@ public class ClienteResourceIntTest {
     public void inativarClienteEdependentes() throws Exception {
         Cliente dependente = createDependente(em, cliente);
         clienteService.save(dependente);
-        cliente.ativo(UPDATED_ATIVO);
         clienteService.save(cliente);
         reset(mockClienteSearchRepository);
         
@@ -466,7 +465,7 @@ public class ClienteResourceIntTest {
         // Disconnect from session so that the updates on updatedCliente are not directly saved in db
         em.detach(updatedCliente);
         updatedCliente
-            .ativo(DEFAULT_ATIVO);
+            .ativo(UPDATED_ATIVO);
 
         restClienteMockMvc.perform(put("/api/clientes")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -478,9 +477,9 @@ public class ClienteResourceIntTest {
         Cliente testCliente = clienteList.get(clienteList.size() - 1);
         List<Cliente> dependentes = clienteRepository.findByCliente(testCliente);
         if(!dependentes.isEmpty()) {
-            dependentes.stream().forEach(a -> assertThat(a.isAtivo()).isEqualTo(DEFAULT_ATIVO));
+            dependentes.stream().forEach(a -> assertThat(a.isAtivo()).isEqualTo(UPDATED_ATIVO));
         }
-        assertThat(testCliente.isAtivo()).isEqualTo(DEFAULT_ATIVO);
+        assertThat(testCliente.isAtivo()).isEqualTo(UPDATED_ATIVO);
 
         // Validate the Cliente in Elasticsearch
         verify(mockClienteSearchRepository, times(1)).save(testCliente);
