@@ -44,6 +44,15 @@ public class ClienteServiceImpl implements ClienteService {
     @Override
     public Cliente save(Cliente cliente) {
         log.debug("Request to save Cliente : {}", cliente);
+        if (!cliente.isAtivo()) {
+        	List<Cliente> dependentes = clienteRepository.findByCliente(cliente);
+        	if(dependentes!=null) {
+        		dependentes.stream().forEach(a -> {
+        		a.setAtivo(false); 
+        		clienteSearchRepository.save(a);	
+        		});
+        	}
+        }
         Cliente result = clienteRepository.save(cliente);
         clienteSearchRepository.save(result);
         return result;

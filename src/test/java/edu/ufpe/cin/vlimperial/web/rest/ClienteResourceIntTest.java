@@ -52,12 +52,15 @@ public class ClienteResourceIntTest {
 
     private static final Long DEFAULT_NUMERO_INCRICAO = 1L;
     private static final Long UPDATED_NUMERO_INCRICAO = 2L;
+    private static final Long DEPENDENTE_NUMERO_INCRICAO = 3L;
 
     private static final String DEFAULT_NOME = "AAAAAAAAAA";
     private static final String UPDATED_NOME = "BBBBBBBBBB";
-
+    private static final String DEPENDENTE_NOME= "CCCCCCCCC";
+    
     private static final Integer DEFAULT_CPF = 1;
     private static final Integer UPDATED_CPF = 2;
+    private static final Integer DEPENDENTE_CPF = 3;
 
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
@@ -83,8 +86,8 @@ public class ClienteResourceIntTest {
     private static final ZonedDateTime DEFAULT_DATA_NASCIMENTO = ZonedDateTime.ofInstant(Instant.ofEpochMilli(0L), ZoneOffset.UTC);
     private static final ZonedDateTime UPDATED_DATA_NASCIMENTO = ZonedDateTime.now(ZoneId.systemDefault()).withNano(0);
 
-    private static final Boolean DEFAULT_ATIVO = false;
-    private static final Boolean UPDATED_ATIVO = true;
+    private static final Boolean DEFAULT_ATIVO = true;
+    private static final Boolean UPDATED_ATIVO = false;
 
     @Autowired
     private ClienteRepository clienteRepository;
@@ -148,6 +151,24 @@ public class ClienteResourceIntTest {
             .dataNascimento(DEFAULT_DATA_NASCIMENTO)
             .ativo(DEFAULT_ATIVO);
         return cliente;
+    }
+    
+    public static Cliente createDependente(EntityManager em, Cliente cliente) {
+        Cliente dependente = new Cliente()
+            .numeroIncricao(DEPENDENTE_NUMERO_INCRICAO)
+            .nome(DEPENDENTE_NOME)
+            .cpf(DEPENDENTE_CPF)
+            .email(DEFAULT_EMAIL)
+            .endereco(DEFAULT_ENDERECO)
+            .telefoneResidencial(DEFAULT_TELEFONE_RESIDENCIAL)
+            .telefoneComercial(DEFAULT_TELEFONE_COMERCIAL)
+            .telefoneCelular(DEFAULT_TELEFONE_CELULAR)
+            .localTrabalho(DEFAULT_LOCAL_TRABALHO)
+            .sexo(DEFAULT_SEXO)
+            .dataNascimento(DEFAULT_DATA_NASCIMENTO)
+            .ativo(DEFAULT_ATIVO)
+            .cliente(cliente);
+        return dependente;
     }
 
     @Before
@@ -429,6 +450,41 @@ public class ClienteResourceIntTest {
         verify(mockClienteSearchRepository, times(1)).save(testCliente);
     }
 
+    @Test
+    @Transactional
+    public void inativarClienteEdependentes() throws Exception {
+        Cliente dependente = createDependente(em, cliente);
+        clienteService.save(dependente);
+        clienteService.save(cliente);
+        reset(mockClienteSearchRepository);
+        
+        int databaseSizeBeforeUpdate = clienteRepository.findAll().size();
+
+        // Update the cliente
+        Cliente updatedCliente = clienteRepository.findById(cliente.getId()).get();
+        // Disconnect from session so that the updates on updatedCliente are not directly saved in db
+        em.detach(updatedCliente);
+        updatedCliente
+            .ativo(UPDATED_ATIVO);
+
+        restClienteMockMvc.perform(put("/api/clientes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(updatedCliente)))
+            .andExpect(status().isOk());
+        // Validar clientes e dependentes se foram inativados
+        List<Cliente> clienteList = clienteRepository.findAll();
+        assertThat(clienteList).hasSize(databaseSizeBeforeUpdate);
+        Cliente testCliente = clienteList.get(clienteList.size() - 1);
+        List<Cliente> dependentes = clienteRepository.findByCliente(testCliente);
+        if(!dependentes.isEmpty()) {
+            dependentes.stream().forEach(a -> assertThat(a.isAtivo()).isEqualTo(UPDATED_ATIVO));
+        }
+        assertThat(testCliente.isAtivo()).isEqualTo(UPDATED_ATIVO);
+
+        // Validate the Cliente in Elasticsearch
+        verify(mockClienteSearchRepository, times(1)).save(testCliente);
+    }
+  
     @Test
     @Transactional
     public void updateNonExistingCliente() throws Exception {
