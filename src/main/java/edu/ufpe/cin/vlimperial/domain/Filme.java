@@ -5,6 +5,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
@@ -30,10 +31,12 @@ public class Filme implements Serializable {
     @SequenceGenerator(name = "sequenceGenerator")
     private Long id;
 
-    @Column(name = "titulo_original")
+    @NotNull
+    @Column(name = "titulo_original", nullable = false)
     private String tituloOriginal;
 
-    @Column(name = "titulo_portugues")
+    @NotNull
+    @Column(name = "titulo_portugues", nullable = false)
     private String tituloPortugues;
 
     @Column(name = "paises")

@@ -30,6 +30,19 @@
             "otherEntityName": "filme",
             "relationshipType": "many-to-one",
             "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "locacao",
+            "otherEntityName": "locacao",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "itemLocado"
+        },
+        {
+            "relationshipName": "reserva",
+            "otherEntityName": "reserva",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20190107201346",

@@ -1,0 +1,25 @@
+{
+    "vlimperialApp": {
+        "locacao": {
+            "home": {
+                "title": "Locacaos",
+                "createLabel": "Criar novo Locacao",
+                "createOrEditLabel": "Criar ou editar Locacao",
+                "search": "Pesquisar por Locacao"
+            },
+            "created": "Um novo Locacao foi criado com o identificador {{ param }}",
+            "updated": "Um Locacao foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Locacao foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Locacao {{ id }}?"
+            },
+            "detail": {
+                "title": "Locacao"
+            },
+            "dataLocacao": "Data Locacao",
+            "valor": "Valor",
+            "cliente": "Cliente",
+            "itemLocado": "Item Locado"
+        }
+    }
+}

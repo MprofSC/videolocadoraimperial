@@ -10,6 +10,10 @@ import { IItemFilme } from 'app/shared/model/item-filme.model';
 import { ItemFilmeService } from './item-filme.service';
 import { IFilme } from 'app/shared/model/filme.model';
 import { FilmeService } from 'app/entities/filme';
+import { ILocacao } from 'app/shared/model/locacao.model';
+import { LocacaoService } from 'app/entities/locacao';
+import { IReserva } from 'app/shared/model/reserva.model';
+import { ReservaService } from 'app/entities/reserva';
 
 @Component({
     selector: 'jhi-item-filme-update',
@@ -20,12 +24,18 @@ export class ItemFilmeUpdateComponent implements OnInit {
     isSaving: boolean;
 
     filmes: IFilme[];
+
+    locacaos: ILocacao[];
+
+    reservas: IReserva[];
     dataAquisicao: string;
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private itemFilmeService: ItemFilmeService,
         private filmeService: FilmeService,
+        private locacaoService: LocacaoService,
+        private reservaService: ReservaService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -38,6 +48,18 @@ export class ItemFilmeUpdateComponent implements OnInit {
         this.filmeService.query().subscribe(
             (res: HttpResponse<IFilme[]>) => {
                 this.filmes = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.locacaoService.query().subscribe(
+            (res: HttpResponse<ILocacao[]>) => {
+                this.locacaos = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.reservaService.query().subscribe(
+            (res: HttpResponse<IReserva[]>) => {
+                this.reservas = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -76,5 +98,24 @@ export class ItemFilmeUpdateComponent implements OnInit {
 
     trackFilmeById(index: number, item: IFilme) {
         return item.id;
+    }
+
+    trackLocacaoById(index: number, item: ILocacao) {
+        return item.id;
+    }
+
+    trackReservaById(index: number, item: IReserva) {
+        return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }

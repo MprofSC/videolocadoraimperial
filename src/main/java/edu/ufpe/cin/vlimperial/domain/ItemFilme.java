@@ -1,5 +1,6 @@
 package edu.ufpe.cin.vlimperial.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -10,6 +11,8 @@ import javax.validation.constraints.*;
 import org.springframework.data.elasticsearch.annotations.Document;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 import edu.ufpe.cin.vlimperial.domain.enumeration.TipoMidia;
@@ -46,6 +49,15 @@ public class ItemFilme implements Serializable {
     @ManyToOne
     @JsonIgnoreProperties("itemfilmes")
     private Filme filme;
+
+    @ManyToMany(mappedBy = "itemLocados")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnore
+    private Set<Locacao> locacaos = new HashSet<>();
+
+    @ManyToOne
+    @JsonIgnoreProperties("midiaDesejadas")
+    private Reserva reserva;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -106,6 +118,44 @@ public class ItemFilme implements Serializable {
 
     public void setFilme(Filme filme) {
         this.filme = filme;
+    }
+
+    public Set<Locacao> getLocacaos() {
+        return locacaos;
+    }
+
+    public ItemFilme locacaos(Set<Locacao> locacaos) {
+        this.locacaos = locacaos;
+        return this;
+    }
+
+    public ItemFilme addLocacao(Locacao locacao) {
+        this.locacaos.add(locacao);
+        locacao.getItemLocados().add(this);
+        return this;
+    }
+
+    public ItemFilme removeLocacao(Locacao locacao) {
+        this.locacaos.remove(locacao);
+        locacao.getItemLocados().remove(this);
+        return this;
+    }
+
+    public void setLocacaos(Set<Locacao> locacaos) {
+        this.locacaos = locacaos;
+    }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public ItemFilme reserva(Reserva reserva) {
+        this.reserva = reserva;
+        return this;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

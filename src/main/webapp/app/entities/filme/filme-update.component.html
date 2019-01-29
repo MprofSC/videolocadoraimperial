@@ -12,12 +12,24 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="vlimperialApp.filme.tituloOriginal" for="field_tituloOriginal">Titulo Original</label>
                     <input type="text" class="form-control" name="tituloOriginal" id="field_tituloOriginal"
-                        [(ngModel)]="filme.tituloOriginal" />
+                        [(ngModel)]="filme.tituloOriginal" required/>
+                    <div [hidden]="!(editForm.controls.tituloOriginal?.dirty && editForm.controls.tituloOriginal?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tituloOriginal?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="vlimperialApp.filme.tituloPortugues" for="field_tituloPortugues">Titulo Portugues</label>
                     <input type="text" class="form-control" name="tituloPortugues" id="field_tituloPortugues"
-                        [(ngModel)]="filme.tituloPortugues" />
+                        [(ngModel)]="filme.tituloPortugues" required/>
+                    <div [hidden]="!(editForm.controls.tituloPortugues?.dirty && editForm.controls.tituloPortugues?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.tituloPortugues?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="vlimperialApp.filme.paises" for="field_paises">Paises</label>

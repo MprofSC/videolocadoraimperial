@@ -1,5 +1,7 @@
 import { Moment } from 'moment';
 import { ICliente } from 'app/shared/model//cliente.model';
+import { IReserva } from 'app/shared/model//reserva.model';
+import { ILocacao } from 'app/shared/model//locacao.model';
 
 export const enum GeneroPessoa {
     MASCULINO = 'MASCULINO',
@@ -23,6 +25,8 @@ export interface ICliente {
     ativo?: boolean;
     cliente?: ICliente;
     clientes?: ICliente[];
+    reservas?: IReserva[];
+    locacaos?: ILocacao[];
 }
 
 export class Cliente implements ICliente {
@@ -41,7 +45,9 @@ export class Cliente implements ICliente {
         public dataNascimento?: Moment,
         public ativo?: boolean,
         public cliente?: ICliente,
-        public clientes?: ICliente[]
+        public clientes?: ICliente[],
+        public reservas?: IReserva[],
+        public locacaos?: ILocacao[]
     ) {
         this.ativo = this.ativo || false;
     }

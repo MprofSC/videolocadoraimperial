@@ -45,6 +45,13 @@ public class CacheConfiguration {
             cm.createCache(edu.ufpe.cin.vlimperial.domain.Filme.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ufpe.cin.vlimperial.domain.Filme.class.getName() + ".itemfilmes", jcacheConfiguration);
             cm.createCache(edu.ufpe.cin.vlimperial.domain.ItemFilme.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.Cliente.class.getName() + ".reservas", jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.Cliente.class.getName() + ".locacaos", jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.ItemFilme.class.getName() + ".locacaos", jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.Locacao.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.Locacao.class.getName() + ".itemLocados", jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.Reserva.class.getName(), jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.Reserva.class.getName() + ".midiaDesejadas", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

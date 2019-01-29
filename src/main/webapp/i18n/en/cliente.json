@@ -29,7 +29,9 @@
             "dataNascimento": "Data Nascimento",
             "ativo": "Ativo",
             "cliente": "Cliente",
-            "cliente": "Cliente"
+            "cliente": "Cliente",
+            "reserva": "Reserva",
+            "locacao": "Locacao"
         }
     }
 }

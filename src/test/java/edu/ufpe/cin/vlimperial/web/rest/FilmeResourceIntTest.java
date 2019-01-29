@@ -191,6 +191,42 @@ public class FilmeResourceIntTest {
 
     @Test
     @Transactional
+    public void checkTituloOriginalIsRequired() throws Exception {
+        int databaseSizeBeforeTest = filmeRepository.findAll().size();
+        // set the field null
+        filme.setTituloOriginal(null);
+
+        // Create the Filme, which fails.
+
+        restFilmeMockMvc.perform(post("/api/filmes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(filme)))
+            .andExpect(status().isBadRequest());
+
+        List<Filme> filmeList = filmeRepository.findAll();
+        assertThat(filmeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
+    public void checkTituloPortuguesIsRequired() throws Exception {
+        int databaseSizeBeforeTest = filmeRepository.findAll().size();
+        // set the field null
+        filme.setTituloPortugues(null);
+
+        // Create the Filme, which fails.
+
+        restFilmeMockMvc.perform(post("/api/filmes")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(filme)))
+            .andExpect(status().isBadRequest());
+
+        List<Filme> filmeList = filmeRepository.findAll();
+        assertThat(filmeList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllFilmes() throws Exception {
         // Initialize the database
         filmeRepository.saveAndFlush(filme);

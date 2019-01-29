@@ -1,57 +1,82 @@
-entity  Cliente{
-	numeroIncricao Long required,
-    nome String required,
-    cpf Integer,
-    email String required,
-    endereco String required,
-    telefoneResidencial String,
-    telefoneComercial String,
-    telefoneCelular String,
-    localTrabalho String,
-    sexo GeneroPessoa required,
-    dataNascimento ZonedDateTime required,
-    ativo Boolean
+entity Cliente{
+numeroIncricao Long required,
+nome String required,
+cpf Long,
+email String required,
+endereco String required,
+telefoneResidencial String,
+telefoneComercial String,
+telefoneCelular String,
+localTrabalho String,
+sexo GeneroPessoa required,
+dataNascimento ZonedDateTime required,
+ativo Boolean
 }
 
 relationship OneToMany {
-	Cliente{cliente(nome)} to Cliente
+Cliente{cliente(nome)} to Cliente
 }
 
 
 enum Genero {
-    ACAO, ANIMACAO, AVENTURA, COMEDIA, DOCUMENTARIO, DRAMA,
-    FICCAO, GUERRA, MUSICAL, POLICIAL, ROMANCE, SUSPENSE, 
-    TERROR
+ACAO, ANIMACAO, AVENTURA, COMEDIA, DOCUMENTARIO, DRAMA,
+FICCAO, GUERRA, MUSICAL, POLICIAL, ROMANCE, SUSPENSE,
+TERROR
 }
 
 enum GeneroPessoa{
-	MASCULINO, FEMININO, INDEFINIDO
+MASCULINO, FEMININO, INDEFINIDO
 }
 
 enum TipoMidia{
-	DVD, VHS, HDDVD, BLURAY
+DVD, VHS, HDDVD, BLURAY
 }
 
 entity Filme {
-	tituloOriginal String,
-    tituloPortugues String,
-    paises String,
-    ano Integer,
-    direcao String,
-    elenco String,
-    sinopse String,
-    duracao String,
-    genero Genero
+tituloOriginal String required,
+tituloPortugues String required,
+paises String,
+ano Integer,
+direcao String,
+elenco String,
+sinopse String,
+duracao String,
+genero Genero
 }
 
 entity ItemFilme{
-	numeroSerie String required,
-    tipoMidia TipoMidia required,
-    dataAquisicao ZonedDateTime required    
+numeroSerie String required,
+tipoMidia TipoMidia required,
+dataAquisicao ZonedDateTime required
 }
 
 relationship OneToMany {
-    Filme{itemfilme} to ItemFilme
+Filme{itemfilme} to ItemFilme
+}
+
+entity Locacao{
+dataLocacao ZonedDateTime required,
+valor Double required
+}
+
+entity Reserva{
+dataSolicitacao ZonedDateTime required
+}
+
+relationship OneToMany {
+Reserva{midiaDesejada} to ItemFilme
+}
+
+relationship OneToMany {
+Cliente{reserva} to Reserva
+}
+
+relationship OneToMany {
+Cliente{locacao} to Locacao
+}
+
+relationship ManyToMany {
+Locacao{itemLocado} to ItemFilme{locacao}
 }
 
 // Set pagination options

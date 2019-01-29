@@ -58,9 +58,9 @@ public class ClienteResourceIntTest {
     private static final String UPDATED_NOME = "BBBBBBBBBB";
     private static final String DEPENDENTE_NOME= "CCCCCCCCC";
     
-    private static final Integer DEFAULT_CPF = 1;
-    private static final Integer UPDATED_CPF = 2;
-    private static final Integer DEPENDENTE_CPF = 3;
+    private static final Long DEFAULT_CPF = 1L;
+    private static final Long UPDATED_CPF = 2L;
+    private static final Long DEPENDENTE_CPF = 3L;
 
     private static final String DEFAULT_EMAIL = "AAAAAAAAAA";
     private static final String UPDATED_EMAIL = "BBBBBBBBBB";
@@ -351,7 +351,7 @@ public class ClienteResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(cliente.getId().intValue())))
             .andExpect(jsonPath("$.[*].numeroIncricao").value(hasItem(DEFAULT_NUMERO_INCRICAO.intValue())))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME.toString())))
-            .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF)))
+            .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF.intValue())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL.toString())))
             .andExpect(jsonPath("$.[*].endereco").value(hasItem(DEFAULT_ENDERECO.toString())))
             .andExpect(jsonPath("$.[*].telefoneResidencial").value(hasItem(DEFAULT_TELEFONE_RESIDENCIAL.toString())))
@@ -376,7 +376,7 @@ public class ClienteResourceIntTest {
             .andExpect(jsonPath("$.id").value(cliente.getId().intValue()))
             .andExpect(jsonPath("$.numeroIncricao").value(DEFAULT_NUMERO_INCRICAO.intValue()))
             .andExpect(jsonPath("$.nome").value(DEFAULT_NOME.toString()))
-            .andExpect(jsonPath("$.cpf").value(DEFAULT_CPF))
+            .andExpect(jsonPath("$.cpf").value(DEFAULT_CPF.intValue()))
             .andExpect(jsonPath("$.email").value(DEFAULT_EMAIL.toString()))
             .andExpect(jsonPath("$.endereco").value(DEFAULT_ENDERECO.toString()))
             .andExpect(jsonPath("$.telefoneResidencial").value(DEFAULT_TELEFONE_RESIDENCIAL.toString()))
@@ -541,7 +541,7 @@ public class ClienteResourceIntTest {
             .andExpect(jsonPath("$.[*].id").value(hasItem(cliente.getId().intValue())))
             .andExpect(jsonPath("$.[*].numeroIncricao").value(hasItem(DEFAULT_NUMERO_INCRICAO.intValue())))
             .andExpect(jsonPath("$.[*].nome").value(hasItem(DEFAULT_NOME)))
-            .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF)))
+            .andExpect(jsonPath("$.[*].cpf").value(hasItem(DEFAULT_CPF.intValue())))
             .andExpect(jsonPath("$.[*].email").value(hasItem(DEFAULT_EMAIL)))
             .andExpect(jsonPath("$.[*].endereco").value(hasItem(DEFAULT_ENDERECO)))
             .andExpect(jsonPath("$.[*].telefoneResidencial").value(hasItem(DEFAULT_TELEFONE_RESIDENCIAL)))

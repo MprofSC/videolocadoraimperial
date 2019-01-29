@@ -19,7 +19,9 @@
             "numeroSerie": "Numero Serie",
             "tipoMidia": "Tipo Midia",
             "dataAquisicao": "Data Aquisicao",
-            "filme": "Filme"
+            "filme": "Filme",
+            "locacao": "Locacao",
+            "reserva": "Reserva"
         }
     }
 }

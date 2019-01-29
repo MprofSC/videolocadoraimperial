@@ -17,7 +17,7 @@
         },
         {
             "fieldName": "cpf",
-            "fieldType": "Integer"
+            "fieldType": "Long"
         },
         {
             "fieldName": "email",
@@ -80,6 +80,18 @@
             "relationshipType": "one-to-many",
             "relationshipName": "cliente",
             "otherEntityName": "cliente",
+            "otherEntityRelationshipName": "cliente"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "reserva",
+            "otherEntityName": "reserva",
+            "otherEntityRelationshipName": "cliente"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "locacao",
+            "otherEntityName": "locacao",
             "otherEntityRelationshipName": "cliente"
         }
     ],

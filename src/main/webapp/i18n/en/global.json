@@ -10,6 +10,8 @@
                 "cliente": "Cliente",
                 "filme": "Filme",
                 "itemFilme": "Item Filme",
+                "locacao": "Locacao",
+                "reserva": "Reserva",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

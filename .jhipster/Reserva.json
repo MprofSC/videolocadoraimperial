@@ -1,0 +1,35 @@
+{
+    "name": "Reserva",
+    "fields": [
+        {
+            "fieldName": "dataSolicitacao",
+            "fieldType": "ZonedDateTime",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipName": "cliente",
+            "otherEntityName": "cliente",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "midiaDesejada",
+            "otherEntityName": "itemFilme",
+            "otherEntityRelationshipName": "reserva"
+        }
+    ],
+    "changelogDate": "20190129184139",
+    "entityTableName": "reserva",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

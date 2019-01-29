@@ -14,5 +14,11 @@
                                  referencedColumnNames="id"
                                  referencedTableName="filme"/>
 
+        <addForeignKeyConstraint baseColumnNames="reserva_id"
+                                 baseTableName="item_filme"
+                                 constraintName="fk_item_filme_reserva_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reserva"/>
+
     </changeSet>
 </databaseChangeLog>

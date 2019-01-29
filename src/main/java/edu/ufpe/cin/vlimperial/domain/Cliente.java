@@ -42,7 +42,7 @@ public class Cliente implements Serializable {
     private String nome;
 
     @Column(name = "cpf")
-    private Integer cpf;
+    private Long cpf;
 
     @NotNull
     @Column(name = "email", nullable = false)
@@ -83,6 +83,12 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "cliente")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Cliente> clientes = new HashSet<>();
+    @OneToMany(mappedBy = "cliente")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Reserva> reservas = new HashSet<>();
+    @OneToMany(mappedBy = "cliente")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<Locacao> locacaos = new HashSet<>();
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -118,16 +124,16 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
-    public Integer getCpf() {
+    public Long getCpf() {
         return cpf;
     }
 
-    public Cliente cpf(Integer cpf) {
+    public Cliente cpf(Long cpf) {
         this.cpf = cpf;
         return this;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(Long cpf) {
         this.cpf = cpf;
     }
 
@@ -284,6 +290,56 @@ public class Cliente implements Serializable {
 
     public void setClientes(Set<Cliente> clientes) {
         this.clientes = clientes;
+    }
+
+    public Set<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public Cliente reservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+        return this;
+    }
+
+    public Cliente addReserva(Reserva reserva) {
+        this.reservas.add(reserva);
+        reserva.setCliente(this);
+        return this;
+    }
+
+    public Cliente removeReserva(Reserva reserva) {
+        this.reservas.remove(reserva);
+        reserva.setCliente(null);
+        return this;
+    }
+
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+
+    public Set<Locacao> getLocacaos() {
+        return locacaos;
+    }
+
+    public Cliente locacaos(Set<Locacao> locacaos) {
+        this.locacaos = locacaos;
+        return this;
+    }
+
+    public Cliente addLocacao(Locacao locacao) {
+        this.locacaos.add(locacao);
+        locacao.setCliente(this);
+        return this;
+    }
+
+    public Cliente removeLocacao(Locacao locacao) {
+        this.locacaos.remove(locacao);
+        locacao.setCliente(null);
+        return this;
+    }
+
+    public void setLocacaos(Set<Locacao> locacaos) {
+        this.locacaos = locacaos;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

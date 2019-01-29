@@ -29,7 +29,7 @@
                 <constraints nullable="false" />
             </column>
 
-            <column name="cpf" type="integer">
+            <column name="cpf" type="bigint">
                 <constraints nullable="true" />
             </column>
 
