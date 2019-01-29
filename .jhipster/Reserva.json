@@ -17,10 +17,12 @@
             "otherEntityField": "id"
         },
         {
-            "relationshipType": "one-to-many",
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "reserva",
             "relationshipName": "midiaDesejada",
             "otherEntityName": "itemFilme",
-            "otherEntityRelationshipName": "reserva"
+            "otherEntityField": "id",
+            "ownerSide": true
         }
     ],
     "changelogDate": "20190129184139",

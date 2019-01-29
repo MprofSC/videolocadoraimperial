@@ -1,6 +1,5 @@
 package edu.ufpe.cin.vlimperial.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -39,9 +38,13 @@ public class Reserva implements Serializable {
     @JsonIgnoreProperties("reservas")
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "reserva")
+    @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JoinTable(name = "reserva_midia_desejada",
+               joinColumns = @JoinColumn(name = "reservas_id", referencedColumnName = "id"),
+               inverseJoinColumns = @JoinColumn(name = "midia_desejadas_id", referencedColumnName = "id"))
     private Set<ItemFilme> midiaDesejadas = new HashSet<>();
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -88,13 +91,13 @@ public class Reserva implements Serializable {
 
     public Reserva addMidiaDesejada(ItemFilme itemFilme) {
         this.midiaDesejadas.add(itemFilme);
-        itemFilme.setReserva(this);
+        itemFilme.getReservas().add(this);
         return this;
     }
 
     public Reserva removeMidiaDesejada(ItemFilme itemFilme) {
         this.midiaDesejadas.remove(itemFilme);
-        itemFilme.setReserva(null);
+        itemFilme.getReservas().remove(this);
         return this;
     }
 

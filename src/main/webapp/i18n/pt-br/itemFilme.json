@@ -20,8 +20,8 @@
             "tipoMidia": "Tipo Midia",
             "dataAquisicao": "Data Aquisicao",
             "filme": "Filme",
-            "locacao": "Locacao",
-            "reserva": "Reserva"
+            "reserva": "Reserva",
+            "locacao": "Locacao"
         }
     }
 }

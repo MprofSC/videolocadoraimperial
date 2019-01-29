@@ -63,8 +63,8 @@ entity Reserva{
 dataSolicitacao ZonedDateTime required
 }
 
-relationship OneToMany {
-Reserva{midiaDesejada} to ItemFilme
+relationship ManyToMany {
+Reserva{midiaDesejada} to ItemFilme{reserva}
 }
 
 relationship OneToMany {

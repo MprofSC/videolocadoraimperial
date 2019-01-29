@@ -23,12 +23,6 @@
                         <a [routerLink]="['/filme', itemFilme.filme?.id, 'view']">{{itemFilme.filme?.id}}</a>
                     </div>
                 </dd>
-                <dt><span jhiTranslate="vlimperialApp.itemFilme.reserva">Reserva</span></dt>
-                <dd>
-                    <div *ngIf="itemFilme.reserva">
-                        <a [routerLink]="['/reserva', itemFilme.reserva?.id, 'view']">{{itemFilme.reserva?.id}}</a>
-                    </div>
-                </dd>
             </dl>
 
             <button type="submit"

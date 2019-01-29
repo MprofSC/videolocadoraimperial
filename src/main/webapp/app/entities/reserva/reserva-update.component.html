@@ -34,6 +34,12 @@
                         <option [ngValue]="clienteOption.id === reserva.cliente?.id ? reserva.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
                     </select>
                 </div>
+                <div class="form-group">
+                    <label jhiTranslate="vlimperialApp.reserva.midiaDesejada" for="field_midiaDesejada">Midia Desejada</label>
+                    <select class="form-control" id="field_midiaDesejada" multiple name="midiaDesejada" [(ngModel)]="reserva.midiaDesejadas">
+                        <option [ngValue]="getSelected(reserva.midiaDesejadas, itemFilmeOption)" *ngFor="let itemFilmeOption of itemfilmes; trackBy: trackItemFilmeById">{{itemFilmeOption.id}}</option>
+                    </select>
+                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

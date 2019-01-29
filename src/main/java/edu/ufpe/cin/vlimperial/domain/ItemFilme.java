@@ -50,14 +50,15 @@ public class ItemFilme implements Serializable {
     @JsonIgnoreProperties("itemfilmes")
     private Filme filme;
 
+    @ManyToMany(mappedBy = "midiaDesejadas")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    @JsonIgnore
+    private Set<Reserva> reservas = new HashSet<>();
+
     @ManyToMany(mappedBy = "itemLocados")
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JsonIgnore
     private Set<Locacao> locacaos = new HashSet<>();
-
-    @ManyToOne
-    @JsonIgnoreProperties("midiaDesejadas")
-    private Reserva reserva;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -120,6 +121,31 @@ public class ItemFilme implements Serializable {
         this.filme = filme;
     }
 
+    public Set<Reserva> getReservas() {
+        return reservas;
+    }
+
+    public ItemFilme reservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+        return this;
+    }
+
+    public ItemFilme addReserva(Reserva reserva) {
+        this.reservas.add(reserva);
+        reserva.getMidiaDesejadas().add(this);
+        return this;
+    }
+
+    public ItemFilme removeReserva(Reserva reserva) {
+        this.reservas.remove(reserva);
+        reserva.getMidiaDesejadas().remove(this);
+        return this;
+    }
+
+    public void setReservas(Set<Reserva> reservas) {
+        this.reservas = reservas;
+    }
+
     public Set<Locacao> getLocacaos() {
         return locacaos;
     }
@@ -143,19 +169,6 @@ public class ItemFilme implements Serializable {
 
     public void setLocacaos(Set<Locacao> locacaos) {
         this.locacaos = locacaos;
-    }
-
-    public Reserva getReserva() {
-        return reserva;
-    }
-
-    public ItemFilme reserva(Reserva reserva) {
-        this.reserva = reserva;
-        return this;
-    }
-
-    public void setReserva(Reserva reserva) {
-        this.reserva = reserva;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

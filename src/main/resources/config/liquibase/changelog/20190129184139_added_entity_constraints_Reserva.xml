@@ -14,5 +14,16 @@
                                  referencedColumnNames="id"
                                  referencedTableName="cliente"/>
 
+        <addForeignKeyConstraint baseColumnNames="reservas_id"
+                                 baseTableName="reserva_midia_desejada"
+                                 constraintName="fk_reserva_midia_desejada_reservas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="reserva"/>
+        <addForeignKeyConstraint baseColumnNames="midia_desejadas_id"
+                                 baseTableName="reserva_midia_desejada"
+                                 constraintName="fk_reserva_midia_desejada_midia_desejadas_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="item_filme"/>
+        
     </changeSet>
 </databaseChangeLog>

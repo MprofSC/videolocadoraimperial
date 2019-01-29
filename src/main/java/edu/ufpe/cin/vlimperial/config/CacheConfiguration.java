@@ -52,6 +52,7 @@ public class CacheConfiguration {
             cm.createCache(edu.ufpe.cin.vlimperial.domain.Locacao.class.getName() + ".itemLocados", jcacheConfiguration);
             cm.createCache(edu.ufpe.cin.vlimperial.domain.Reserva.class.getName(), jcacheConfiguration);
             cm.createCache(edu.ufpe.cin.vlimperial.domain.Reserva.class.getName() + ".midiaDesejadas", jcacheConfiguration);
+            cm.createCache(edu.ufpe.cin.vlimperial.domain.ItemFilme.class.getName() + ".reservas", jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

@@ -60,13 +60,6 @@
                         <option [ngValue]="filmeOption.id === itemFilme.filme?.id ? itemFilme.filme : filmeOption" *ngFor="let filmeOption of filmes; trackBy: trackFilmeById">{{filmeOption.id}}</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label class="form-control-label" jhiTranslate="vlimperialApp.itemFilme.reserva" for="field_reserva">Reserva</label>
-                    <select class="form-control" id="field_reserva" name="reserva" [(ngModel)]="itemFilme.reserva" >
-                        <option [ngValue]="null"></option>
-                        <option [ngValue]="reservaOption.id === itemFilme.reserva?.id ? itemFilme.reserva : reservaOption" *ngFor="let reservaOption of reservas; trackBy: trackReservaById">{{reservaOption.id}}</option>
-                    </select>
-                </div>
             </div>
             <div>
                 <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">

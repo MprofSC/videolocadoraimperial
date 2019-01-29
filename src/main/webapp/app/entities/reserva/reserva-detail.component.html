@@ -15,6 +15,12 @@
                         <a [routerLink]="['/cliente', reserva.cliente?.id, 'view']">{{reserva.cliente?.id}}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="vlimperialApp.reserva.midiaDesejada">Midia Desejada</span></dt>
+                <dd>
+                    <span *ngFor="let midiaDesejada of reserva.midiaDesejadas; let last = last">
+                        <a [routerLink]="['/item-filme', midiaDesejada?.id, 'view' ]">{{midiaDesejada.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
             </dl>
 
             <button type="submit"

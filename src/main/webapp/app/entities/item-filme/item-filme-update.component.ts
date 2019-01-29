@@ -10,10 +10,10 @@ import { IItemFilme } from 'app/shared/model/item-filme.model';
 import { ItemFilmeService } from './item-filme.service';
 import { IFilme } from 'app/shared/model/filme.model';
 import { FilmeService } from 'app/entities/filme';
-import { ILocacao } from 'app/shared/model/locacao.model';
-import { LocacaoService } from 'app/entities/locacao';
 import { IReserva } from 'app/shared/model/reserva.model';
 import { ReservaService } from 'app/entities/reserva';
+import { ILocacao } from 'app/shared/model/locacao.model';
+import { LocacaoService } from 'app/entities/locacao';
 
 @Component({
     selector: 'jhi-item-filme-update',
@@ -25,17 +25,17 @@ export class ItemFilmeUpdateComponent implements OnInit {
 
     filmes: IFilme[];
 
-    locacaos: ILocacao[];
-
     reservas: IReserva[];
+
+    locacaos: ILocacao[];
     dataAquisicao: string;
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private itemFilmeService: ItemFilmeService,
         private filmeService: FilmeService,
-        private locacaoService: LocacaoService,
         private reservaService: ReservaService,
+        private locacaoService: LocacaoService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -51,15 +51,15 @@ export class ItemFilmeUpdateComponent implements OnInit {
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
-        this.locacaoService.query().subscribe(
-            (res: HttpResponse<ILocacao[]>) => {
-                this.locacaos = res.body;
-            },
-            (res: HttpErrorResponse) => this.onError(res.message)
-        );
         this.reservaService.query().subscribe(
             (res: HttpResponse<IReserva[]>) => {
                 this.reservas = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.locacaoService.query().subscribe(
+            (res: HttpResponse<ILocacao[]>) => {
+                this.locacaos = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -100,11 +100,11 @@ export class ItemFilmeUpdateComponent implements OnInit {
         return item.id;
     }
 
-    trackLocacaoById(index: number, item: ILocacao) {
+    trackReservaById(index: number, item: IReserva) {
         return item.id;
     }
 
-    trackReservaById(index: number, item: IReserva) {
+    trackLocacaoById(index: number, item: ILocacao) {
         return item.id;
     }
 

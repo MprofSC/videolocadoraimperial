@@ -7,6 +7,8 @@ import edu.ufpe.cin.vlimperial.repository.search.ReservaSearchRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -58,9 +60,18 @@ public class ReservaServiceImpl implements ReservaService {
     @Transactional(readOnly = true)
     public List<Reserva> findAll() {
         log.debug("Request to get all Reservas");
-        return reservaRepository.findAll();
+        return reservaRepository.findAllWithEagerRelationships();
     }
 
+    /**
+     * Get all the Reserva with eager load of many-to-many relationships.
+     *
+     * @return the list of entities
+     */
+    public Page<Reserva> findAllWithEagerRelationships(Pageable pageable) {
+        return reservaRepository.findAllWithEagerRelationships(pageable);
+    }
+    
 
     /**
      * Get one reserva by id.
@@ -72,7 +83,7 @@ public class ReservaServiceImpl implements ReservaService {
     @Transactional(readOnly = true)
     public Optional<Reserva> findOne(Long id) {
         log.debug("Request to get Reserva : {}", id);
-        return reservaRepository.findById(id);
+        return reservaRepository.findOneWithEagerRelationships(id);
     }
 
     /**

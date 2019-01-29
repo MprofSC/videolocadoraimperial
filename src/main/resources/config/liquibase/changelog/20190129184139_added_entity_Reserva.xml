@@ -33,6 +33,17 @@
         </createTable>
         <dropDefaultValue tableName="reserva" columnName="data_solicitacao" columnDataType="datetime"/>
         
+        <createTable tableName="reserva_midia_desejada">
+            <column name="midia_desejadas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reservas_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="reservas_id, midia_desejadas_id" tableName="reserva_midia_desejada"/>
+        
     </changeSet>
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
 </databaseChangeLog>

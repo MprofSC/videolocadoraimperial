@@ -10,6 +10,8 @@ import { IReserva } from 'app/shared/model/reserva.model';
 import { ReservaService } from './reserva.service';
 import { ICliente } from 'app/shared/model/cliente.model';
 import { ClienteService } from 'app/entities/cliente';
+import { IItemFilme } from 'app/shared/model/item-filme.model';
+import { ItemFilmeService } from 'app/entities/item-filme';
 
 @Component({
     selector: 'jhi-reserva-update',
@@ -20,12 +22,15 @@ export class ReservaUpdateComponent implements OnInit {
     isSaving: boolean;
 
     clientes: ICliente[];
+
+    itemfilmes: IItemFilme[];
     dataSolicitacao: string;
 
     constructor(
         private jhiAlertService: JhiAlertService,
         private reservaService: ReservaService,
         private clienteService: ClienteService,
+        private itemFilmeService: ItemFilmeService,
         private activatedRoute: ActivatedRoute
     ) {}
 
@@ -38,6 +43,12 @@ export class ReservaUpdateComponent implements OnInit {
         this.clienteService.query().subscribe(
             (res: HttpResponse<ICliente[]>) => {
                 this.clientes = res.body;
+            },
+            (res: HttpErrorResponse) => this.onError(res.message)
+        );
+        this.itemFilmeService.query().subscribe(
+            (res: HttpResponse<IItemFilme[]>) => {
+                this.itemfilmes = res.body;
             },
             (res: HttpErrorResponse) => this.onError(res.message)
         );
@@ -76,5 +87,20 @@ export class ReservaUpdateComponent implements OnInit {
 
     trackClienteById(index: number, item: ICliente) {
         return item.id;
+    }
+
+    trackItemFilmeById(index: number, item: IItemFilme) {
+        return item.id;
+    }
+
+    getSelected(selectedVals: Array<any>, option: any) {
+        if (selectedVals) {
+            for (let i = 0; i < selectedVals.length; i++) {
+                if (option.id === selectedVals[i].id) {
+                    return selectedVals[i];
+                }
+            }
+        }
+        return option;
     }
 }

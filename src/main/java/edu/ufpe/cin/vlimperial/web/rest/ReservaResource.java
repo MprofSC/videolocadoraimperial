@@ -83,11 +83,12 @@ public class ReservaResource {
     /**
      * GET  /reservas : get all the reservas.
      *
+     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many)
      * @return the ResponseEntity with status 200 (OK) and the list of reservas in body
      */
     @GetMapping("/reservas")
     @Timed
-    public List<Reserva> getAllReservas() {
+    public List<Reserva> getAllReservas(@RequestParam(required = false, defaultValue = "false") boolean eagerload) {
         log.debug("REST request to get all Reservas");
         return reservaService.findAll();
     }

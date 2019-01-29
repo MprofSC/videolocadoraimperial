@@ -1,7 +1,7 @@
 import { Moment } from 'moment';
 import { IFilme } from 'app/shared/model//filme.model';
-import { ILocacao } from 'app/shared/model//locacao.model';
 import { IReserva } from 'app/shared/model//reserva.model';
+import { ILocacao } from 'app/shared/model//locacao.model';
 
 export const enum TipoMidia {
     DVD = 'DVD',
@@ -16,8 +16,8 @@ export interface IItemFilme {
     tipoMidia?: TipoMidia;
     dataAquisicao?: Moment;
     filme?: IFilme;
+    reservas?: IReserva[];
     locacaos?: ILocacao[];
-    reserva?: IReserva;
 }
 
 export class ItemFilme implements IItemFilme {
@@ -27,7 +27,7 @@ export class ItemFilme implements IItemFilme {
         public tipoMidia?: TipoMidia,
         public dataAquisicao?: Moment,
         public filme?: IFilme,
-        public locacaos?: ILocacao[],
-        public reserva?: IReserva
+        public reservas?: IReserva[],
+        public locacaos?: ILocacao[]
     ) {}
 }
