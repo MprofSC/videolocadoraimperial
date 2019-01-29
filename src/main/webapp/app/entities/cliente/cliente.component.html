@@ -63,7 +63,7 @@
                 <td>{{cliente.ativo}}</td>
                 <td>
                     <div *ngIf="cliente.cliente">
-                        <a [routerLink]="['../cliente', cliente.cliente?.id, 'view' ]" >{{cliente.cliente?.id}}</a>
+                        <a [routerLink]="['../cliente', cliente.cliente?.id, 'view' ]" >{{cliente.cliente?.nome}}</a>
                     </div>
                 </td>
                 <td class="text-right">

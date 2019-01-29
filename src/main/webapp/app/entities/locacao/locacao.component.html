@@ -49,7 +49,7 @@
                 </td>
                 <td>
                     <span *ngFor="let itemLocado of locacao.itemLocados; let last = last">
-                            <a class="form-control-static" [routerLink]="['../item-filme', itemLocado?.id, 'view' ]">{{itemLocado.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../item-filme', itemLocado?.id, 'view' ]">{{itemLocado.filme?.tituloPortugues}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td class="text-right">

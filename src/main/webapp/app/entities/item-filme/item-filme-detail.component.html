@@ -20,7 +20,7 @@
                 <dt><span jhiTranslate="vlimperialApp.itemFilme.filme">Filme</span></dt>
                 <dd>
                     <div *ngIf="itemFilme.filme">
-                        <a [routerLink]="['/filme', itemFilme.filme?.id, 'view']">{{itemFilme.filme?.id}}</a>
+                        <a [routerLink]="['/filme', itemFilme.filme?.id, 'view']">{{itemFilme.filme?.tituloPortugues}}</a>
                     </div>
                 </dd>
             </dl>

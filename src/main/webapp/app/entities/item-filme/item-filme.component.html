@@ -45,7 +45,7 @@
                 <td>{{itemFilme.dataAquisicao | date:'medium'}}</td>
                 <td>
                     <div *ngIf="itemFilme.filme">
-                        <a [routerLink]="['../filme', itemFilme.filme?.id, 'view' ]" >{{itemFilme.filme?.id}}</a>
+                        <a [routerLink]="['../filme', itemFilme.filme?.id, 'view' ]" >{{itemFilme.filme?.tituloPortugues}}</a>
                     </div>
                 </td>
                 <td class="text-right">

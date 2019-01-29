@@ -56,7 +56,7 @@
                 <dt><span jhiTranslate="vlimperialApp.cliente.cliente">Cliente</span></dt>
                 <dd>
                     <div *ngIf="cliente.cliente">
-                        <a [routerLink]="['/cliente', cliente.cliente?.id, 'view']">{{cliente.cliente?.id}}</a>
+                        <a [routerLink]="['/cliente', cliente.cliente?.id, 'view']">{{cliente.cliente?.nome}}</a>
                     </div>
                 </dd>
             </dl>

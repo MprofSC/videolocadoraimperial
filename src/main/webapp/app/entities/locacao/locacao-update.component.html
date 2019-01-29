@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="vlimperialApp.locacao.dataLocacao" for="field_dataLocacao">Data Locacao</label>
                     <div class="d-flex">
-                        <input id="field_dataLocacao" type="datetime-local" class="form-control" name="dataLocacao" [(ngModel)]="dataLocacao"
+                        <input id="field_dataLocacao" type="date" class="form-control" name="dataLocacao" [(ngModel)]="dataLocacao"
                         required/>
                     </div>
                     <div [hidden]="!(editForm.controls.dataLocacao?.dirty && editForm.controls.dataLocacao?.invalid)">
@@ -46,7 +46,7 @@
                     <label class="form-control-label" jhiTranslate="vlimperialApp.locacao.cliente" for="field_cliente">Cliente</label>
                     <select class="form-control" id="field_cliente" name="cliente" [(ngModel)]="locacao.cliente" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="clienteOption.id === locacao.cliente?.id ? locacao.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{clienteOption.id}}</option>
+                        <option [ngValue]="clienteOption.id === locacao.cliente?.id ? locacao.cliente : clienteOption" *ngFor="let clienteOption of clientes; trackBy: trackClienteById">{{locacao.cliente?nome}}</option>
                     </select>
                 </div>
                 <div class="form-group">
