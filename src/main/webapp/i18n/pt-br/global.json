@@ -136,5 +136,5 @@
         "idexists": "Novo(a) {{entityName}} não pode ter uma ID",
         "idnull": "Invalid ID"
     },
-    "footer": "Este é o seu rodapé"
+    "footer": "Desenvolvido por: Daniel Estrazulas Severo (des@cin.ufpe.br), Eliandro Luiz Minski (elm@cin.ufpe.br) e Samuel Bristot Loli (sbl@cin.ufpe.br)"
 }

@@ -137,5 +137,5 @@
         "idexists": "A new {{ entityName }} cannot already have an ID",
         "idnull": "Invalid ID"
     },
-    "footer": "This is your footer"
+    "footer": "Developed by: Daniel Estrazulas Severo (des@cin.ufpe.br), Eliandro Luiz Minski (elm@cin.ufpe.br) e Samuel Bristot Loli (sbl@cin.ufpe.br)"
 }
