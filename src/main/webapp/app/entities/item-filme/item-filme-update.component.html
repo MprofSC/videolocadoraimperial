@@ -38,7 +38,7 @@
                 <div class="form-group">
                     <label class="form-control-label" jhiTranslate="vlimperialApp.itemFilme.dataAquisicao" for="field_dataAquisicao">Data Aquisicao</label>
                     <div class="d-flex">
-                        <input id="field_dataAquisicao" type="datetime-local" class="form-control" name="dataAquisicao" [(ngModel)]="dataAquisicao"
+                        <input id="field_dataAquisicao" type="date" class="form-control" name="dataAquisicao" [(ngModel)]="dataAquisicao"
                         required/>
                     </div>
                     <div [hidden]="!(editForm.controls.dataAquisicao?.dirty && editForm.controls.dataAquisicao?.invalid)">
@@ -57,7 +57,7 @@
                     <label class="form-control-label" jhiTranslate="vlimperialApp.itemFilme.filme" for="field_filme">Filme</label>
                     <select class="form-control" id="field_filme" name="filme" [(ngModel)]="itemFilme.filme" >
                         <option [ngValue]="null"></option>
-                        <option [ngValue]="filmeOption.id === itemFilme.filme?.id ? itemFilme.filme : filmeOption" *ngFor="let filmeOption of filmes; trackBy: trackFilmeById">{{filmeOption.id}}</option>
+                        <option [ngValue]="filmeOption.id === itemFilme.filme?.id ? itemFilme.filme : filmeOption" *ngFor="let filmeOption of filmes; trackBy: trackFilmeById">{{filmeOption.tituloPortugues}}</option>
                     </select>
                 </div>
             </div>
