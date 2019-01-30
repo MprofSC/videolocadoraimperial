@@ -42,12 +42,12 @@
                 <td>{{reserva.dataSolicitacao | date:'medium'}}</td>
                 <td>
                     <div *ngIf="reserva.cliente">
-                        <a [routerLink]="['../cliente', reserva.cliente?.id, 'view' ]" >{{reserva.cliente?.id}}</a>
+                        <a [routerLink]="['../cliente', reserva.cliente?.id, 'view' ]" >{{reserva.cliente?.nome}}</a>
                     </div>
                 </td>
                 <td>
                     <span *ngFor="let midiaDesejada of reserva.midiaDesejadas; let last = last">
-                            <a class="form-control-static" [routerLink]="['../item-filme', midiaDesejada?.id, 'view' ]">{{midiaDesejada.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../item-filme', midiaDesejada?.id, 'view' ]">{{midiaDesejada.filme?.tituloPortugues}} - {{midiaDesejada.tipoMidia}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td class="text-right">

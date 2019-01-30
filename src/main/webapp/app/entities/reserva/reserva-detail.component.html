@@ -12,13 +12,13 @@
                 <dt><span jhiTranslate="vlimperialApp.reserva.cliente">Cliente</span></dt>
                 <dd>
                     <div *ngIf="reserva.cliente">
-                        <a [routerLink]="['/cliente', reserva.cliente?.id, 'view']">{{reserva.cliente?.id}}</a>
+                        <a [routerLink]="['/cliente', reserva.cliente?.id, 'view']">{{reserva.cliente?.nome}}</a>
                     </div>
                 </dd>
                 <dt><span jhiTranslate="vlimperialApp.reserva.midiaDesejada">Midia Desejada</span></dt>
                 <dd>
                     <span *ngFor="let midiaDesejada of reserva.midiaDesejadas; let last = last">
-                        <a [routerLink]="['/item-filme', midiaDesejada?.id, 'view' ]">{{midiaDesejada.id}}</a>{{last ? '' : ', '}}
+                        <a [routerLink]="['/item-filme', midiaDesejada?.id, 'view' ]">{{midiaDesejada.filme?.tituloPortugues}} - {{midiaDesejada.tipoMidia}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
             </dl>
