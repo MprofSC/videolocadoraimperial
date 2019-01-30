@@ -42,7 +42,7 @@
             <th><span jhiTranslate="vlimperialApp.cliente.sexo">Sexo</span></th>
             <th><span jhiTranslate="vlimperialApp.cliente.dataNascimento">Data Nascimento</span></th>
             <th><span jhiTranslate="vlimperialApp.cliente.ativo">Ativo</span></th>
-            <th><span jhiTranslate="vlimperialApp.cliente.cliente">Cliente</span></th>
+            <th><span jhiTranslate="vlimperialApp.cliente.cliente">Dependente de</span></th>
             <th></th>
             </tr>
             </thead>
@@ -63,7 +63,7 @@
                 <td>{{cliente.ativo}}</td>
                 <td>
                     <div *ngIf="cliente.cliente">
-                        <a [routerLink]="['../cliente', cliente.cliente?.id, 'view' ]" >{{cliente.cliente?.id}}</a>
+                        <a [routerLink]="['../cliente', cliente.cliente?.id, 'view' ]" >{{cliente.cliente?.nome}}</a>
                     </div>
                 </td>
                 <td class="text-right">
