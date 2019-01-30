@@ -28,7 +28,7 @@
             "sexo": "Sexo",
             "dataNascimento": "Data Nascimento",
             "ativo": "Ativo",
-            "cliente": "Cliente",
+            "cliente": "Dependente de",
             "reserva": "Reserva",
             "locacao": "Locacao"
         }
