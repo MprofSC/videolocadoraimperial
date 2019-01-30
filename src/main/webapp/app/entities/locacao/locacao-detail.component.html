@@ -22,7 +22,7 @@
                 <dt><span jhiTranslate="vlimperialApp.locacao.itemLocado">Item Locado</span></dt>
                 <dd>
                     <span *ngFor="let itemLocado of locacao.itemLocados; let last = last">
-                        <a [routerLink]="['/item-filme', itemLocado?.id, 'view' ]">{{itemLocado.id}}</a>{{last ? '' : ', '}}
+                        <a [routerLink]="['/item-filme', itemLocado?.id, 'view' ]">{{itemLocado.filme?.tituloPortugues}} - {{itemLocado.tipoMidia}}</a>{{last ? '' : ', '}}
                     </span>
                 </dd>
             </dl>

@@ -2,7 +2,7 @@
     "vlimperialApp": {
         "locacao": {
             "home": {
-                "title": "Locacaos",
+                "title": "Locações",
                 "createLabel": "Create a new Locacao",
                 "createOrEditLabel": "Create or edit a Locacao",
                 "search": "Search for Locacao"

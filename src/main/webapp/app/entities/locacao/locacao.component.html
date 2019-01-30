@@ -44,12 +44,12 @@
                 <td>{{locacao.valor}}</td>
                 <td>
                     <div *ngIf="locacao.cliente">
-                        <a [routerLink]="['../cliente', locacao.cliente?.id, 'view' ]" >{{locacao.cliente?.id}}</a>
+                        <a [routerLink]="['../cliente', locacao.cliente?.id, 'view' ]" >{{locacao.cliente?.nome}}</a>
                     </div>
                 </td>
                 <td>
                     <span *ngFor="let itemLocado of locacao.itemLocados; let last = last">
-                            <a class="form-control-static" [routerLink]="['../item-filme', itemLocado?.id, 'view' ]">{{itemLocado.id}}</a>{{last ? '' : ', '}}
+                            <a class="form-control-static" [routerLink]="['../item-filme', itemLocado?.id, 'view' ]">{{itemLocado.filme?.tituloPortugues}} - {{itemLocado.tipoMidia}}</a>{{last ? '' : ', '}}
                         </span>
                 </td>
                 <td class="text-right">
