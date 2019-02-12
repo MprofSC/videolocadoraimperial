@@ -1,6 +1,6 @@
-Feature: User management
+Feature: Conta de Usuário
 
-    Scenario: Retrieve administrator user
-        When I search user 'admin'
-        Then the user is found
-        And his last name is 'Administrator'
+    Scenario: Localizar usuário administrador
+        When Eu procuro um usuário 'admin'
+        Then o usuário é encontrado
+        And o último nome é 'Administrator'
