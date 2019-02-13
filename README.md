@@ -64,9 +64,6 @@
 	
 <p>O módulo locação também será responsável pelo cadastro de devoluções de mídias. Quando a mídia é devolvida na locadora, o colaborador deve selecionar a opção “Devolução” e informar o código da mídia ou do cliente, indicar a(s) mídia(s) que estão sendo devolvidas, o sistema confere se a devolução está dentro do prazo estabelecido no ato da locação, caso esteja sendo devolvida com atraso, o sistema adiciona o valor da(s) diária(s) excedentes.</p>
 	
-	Financeiro e Relatórios:Neste módulo o colaborador com permissões de acesso, poderá realizar o fechamento 
-	do caixa, gerar relatórios financeiros como por exemplo: Quantidades ou valores de locações por período, 
-	por mídia ou gênero, quantidades de locações por cliente, estabelecendo períodos.
 	
 <p>Relatórios estatísticos, também poderão ser gerados neste módulo, auxiliando a gerência na tomada de decisões para aquisição de novas mídias e período para realização de promoções, baseando-se nas informações do sistema, como por exemplo: Gêneros mais locados; Períodos de maiores locações; Preferências do cliente. Outro setor a beneficiar-se com esses relatórios e o setor de marketing, pois poderá realizar consultas e emissão de relatórios que auxiliem na interação com os clientes, como por exemplo, o envio de e-mail informando as novas mídias disponíveis na locadora, lançamentos e promoções, baseados nos dados de preferência do cliente.</p> 
 
